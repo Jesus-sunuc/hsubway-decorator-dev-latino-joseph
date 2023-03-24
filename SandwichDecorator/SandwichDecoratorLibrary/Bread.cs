@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SandwichDecoratorLibrary
 {
-    internal enum Bread
+    public enum Bread
     {
         white, 
         wheat, 

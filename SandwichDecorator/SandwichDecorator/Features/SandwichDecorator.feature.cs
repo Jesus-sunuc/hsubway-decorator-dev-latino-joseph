@@ -193,7 +193,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 18
-    testRunner.When("a BLT sandwich on wheat bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("a BLT sandwich on rye bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
     testRunner.Then("the sandwich will cost $5.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -325,7 +325,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 38
-    testRunner.When("a PBJ sandwich on wheat bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("a PBJ sandwich on rye bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 39
     testRunner.Then("the sandwich will cost $3.25", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -457,7 +457,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 57
-    testRunner.When("a chicken sandwich on wheat bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("a chicken sandwich on rye bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 58
     testRunner.Then("the sandwich will cost $4.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
