@@ -6,10 +6,17 @@ namespace SandwichDecorator.StepDefinitions
     [Binding]
     public class SandwichBreadStepDefinitions
     {
+        private ScenarioContext _sc;
+
+        public SandwichBreadStepDefinitions(ScenarioContext scenario)
+        {
+            _sc = scenario;
+        }
+
         [When(@"a BLT sandwich on white bread is ordered")]
         public void WhenABLTSandwichOnWhiteBreadIsOrdered()
         {
-            throw new PendingStepException();
+            
         }
 
         [Then(@"the sandwich will cost \$(.*)")]
