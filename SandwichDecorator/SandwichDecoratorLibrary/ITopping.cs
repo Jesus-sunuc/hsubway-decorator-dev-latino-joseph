@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SandwichDecoratorLibrary
 {
-    internal interface ITopping
+    public interface ITopping
     {
+        public decimal GetPrice();
+        public string GetDescription();
     }
 }

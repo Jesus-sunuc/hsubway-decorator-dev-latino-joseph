@@ -78,6 +78,29 @@ namespace SandwichDecorator.StepDefinitions
             _sc.Add("sandwich", sandwich);
         }
 
+        [When(@"customer orders cheese")]
+        public void WhenCustomerOrdersCheese()
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"customer orders lettuce")]
+        public void WhenCustomerOrdersLettuce()
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"customer orders tomato")]
+        public void WhenCustomerOrdersTomato()
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"customer orders bacon")]
+        public void WhenCustomerOrdersBacon()
+        {
+            throw new PendingStepException();
+        }
 
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)

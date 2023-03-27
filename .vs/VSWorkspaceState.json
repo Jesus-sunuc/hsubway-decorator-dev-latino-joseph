@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SandwichDecorator",
+    "\\SandwichDecorator\\SandwichDecoratorLibrary"
   ],
-  "SelectedNode": "\\SandwichDecorator.sln",
+  "SelectedNode": "\\SandwichDecorator\\SandwichDecorator.sln",
   "PreviewInSolutionExplorer": false
 }
