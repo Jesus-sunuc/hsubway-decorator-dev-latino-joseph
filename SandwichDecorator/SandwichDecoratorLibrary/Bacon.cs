@@ -8,6 +8,14 @@ namespace SandwichDecoratorLibrary
 {
     public class Bacon : ITopping
     {
+        public Bacon(ITopping topping)
+        {
+
+        }
+        public Bacon(ISandwich sandwich)
+        {
+
+        }
         public decimal GetPrice()
         {
             return 0;

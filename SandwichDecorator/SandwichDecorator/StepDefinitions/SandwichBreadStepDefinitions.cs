@@ -13,6 +13,7 @@ namespace SandwichDecorator.StepDefinitions
         public SandwichBreadStepDefinitions(ScenarioContext scenario)
         {
             _sc = scenario;
+            _sc.Add("topped", null);
         }
 
         [When(@"a BLT sandwich on white bread is ordered")]
@@ -81,39 +82,101 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"customer orders cheese")]
         public void WhenCustomerOrdersCheese()
         {
-            throw new PendingStepException();
+            ITopping newtopping;
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                newtopping = new Cheese(topping);
+            }
+            else
+            {
+                newtopping = new Cheese(sandwich);
+            }
+            _sc.Set<ITopping>(topping, "topped");
         }
 
         [When(@"customer orders lettuce")]
         public void WhenCustomerOrdersLettuce()
         {
-            throw new PendingStepException();
+            ITopping newtopping;
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                newtopping = new Lettuce(topping);
+            }
+            else
+            {
+                newtopping = new Lettuce(sandwich);
+            }
+            _sc.Set<ITopping>(topping, "topped");
         }
 
         [When(@"customer orders tomato")]
         public void WhenCustomerOrdersTomato()
         {
-            throw new PendingStepException();
+            ITopping newtopping;
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                newtopping = new Tomato(topping);
+            }
+            else
+            {
+                newtopping = new Tomato(sandwich);
+            }
+            _sc.Set<ITopping>(topping, "topped");
         }
 
         [When(@"customer orders bacon")]
         public void WhenCustomerOrdersBacon()
         {
-            throw new PendingStepException();
+            ITopping newtopping;
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                newtopping = new Bacon(topping);
+            }
+            else
+            {
+                newtopping = new Bacon(sandwich);
+            }
+            _sc.Set<ITopping>(topping, "topped");
         }
 
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)
         {
-            _sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
-            //ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
-            //sandwich.GetPrice().Should().BeApproximately(p0, 0.1m);
+            //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                topping.GetPrice().Should().BeApproximately(p0, 0.1m);
+            }
+            else
+            {
+                sandwich.GetPrice().Should().BeApproximately(p0, 0.1m);
+            }
         }
 
         [Then(@"the sandwich is described as ""([^""]*)""")]
         public void ThenTheSandwichIsDescribedAs(string p0)
         {
-            _sc.Get<ISandwich>("sandwich").GetDescription().Should().Be(p0);
+            //_sc.Get<ISandwich>("sandwich").GetDescription().Should().Be(p0);
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                topping.GetDescription().Should().Be(p0);
+            }
+            else
+            {
+                sandwich.GetDescription().Should().Be(p0);
+            }
         }
     }
 }
