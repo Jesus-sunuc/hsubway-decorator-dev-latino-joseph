@@ -10,3 +10,15 @@ C:\Users\Joseph.fitch\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichD
 C:\Users\Joseph.fitch\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\refint\SandwichDecoratorLibrary.dll
 C:\Users\Joseph.fitch\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.pdb
 C:\Users\Joseph.fitch\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\ref\SandwichDecoratorLibrary.dll
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.deps.json
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.dll
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.pdb
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.csproj.AssemblyReference.cache
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.AssemblyInfoInputs.cache
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.AssemblyInfo.cs
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.dll
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\refint\SandwichDecoratorLibrary.dll
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.pdb
+C:\Users\Joseph.fitch\Source\Repos\SnowSE\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\ref\SandwichDecoratorLibrary.dll
