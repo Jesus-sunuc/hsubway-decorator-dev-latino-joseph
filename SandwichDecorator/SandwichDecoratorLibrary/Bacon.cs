@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SandwichDecoratorLibrary
 {
-    internal class Bacno
+    internal class Bacon
     {
     }
 }
