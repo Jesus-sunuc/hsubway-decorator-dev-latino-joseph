@@ -8,6 +8,14 @@ namespace SandwichDecoratorLibrary
 {
     public class BBQ : ITopping
     {
+        public BBQ(ITopping topping)
+        {
+
+        }
+        public BBQ(ISandwich sandwich)
+        {
+
+        }
         public decimal GetPrice()
         {
             return 0;

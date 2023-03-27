@@ -8,6 +8,14 @@ namespace SandwichDecoratorLibrary
 {
     public class Mayo : ITopping
     {
+        public Mayo(ITopping topping)
+        {
+
+        }
+        public Mayo(ISandwich sandwich)
+        {
+
+        }
         public decimal GetPrice()
         {
             return 0;
