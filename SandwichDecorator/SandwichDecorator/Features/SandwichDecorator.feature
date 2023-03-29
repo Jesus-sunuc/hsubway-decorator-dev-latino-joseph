@@ -76,3 +76,13 @@ Scenario: Shredded chicken on rye + cheese + lettuce + lettuce + lettuce + tomat
     And customer orders bacon
     Then the sandwich will cost $7.00
     And the sandwich is described as "Chicken sandwich on rye bread + cheese + lettuce + lettuce + lettuce + tomato + bacon"
+
+Scenario: BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon = $8.75
+    When a BLT sandwich on wheat bread is ordered
+    And customer orders cheese
+    And customer orders bacon
+    And customer orders bacon
+    And customer orders bacon
+    And customer orders bacon
+    Then the sandwich will cost $8.75
+    And the sandwich is described as "BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon"
