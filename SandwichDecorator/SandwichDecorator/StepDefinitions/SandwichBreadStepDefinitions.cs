@@ -147,6 +147,40 @@ namespace SandwichDecorator.StepDefinitions
             _sc.Set<ITopping>(topping, "topped");
         }
 
+        [When(@"customer orders BBQ")]
+        public void WhenCustomerOrdersBBQ()
+        {
+            ITopping newtopping;
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                newtopping = new BBQ(topping);
+            }
+            else
+            {
+                newtopping = new BBQ(sandwich);
+            }
+            _sc.Set<ITopping>(topping, "topped");
+        }
+
+        [When(@"customer orders mayo")]
+        public void WhenCustomerOrdersMayo()
+        {
+            ITopping newtopping;
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+            if (topping != null)
+            {
+                newtopping = new Mayo(topping);
+            }
+            else
+            {
+                newtopping = new Mayo(sandwich);
+            }
+            _sc.Set<ITopping>(topping, "topped");
+        }
+
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)
         {

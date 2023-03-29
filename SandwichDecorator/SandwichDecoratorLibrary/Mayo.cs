@@ -9,11 +9,16 @@ namespace SandwichDecoratorLibrary
     public class Mayo : ITopping
     {
         private ITopping _topping;
+        private ISandwich sandwich;
         private static int _serveCount = 0;
 
         public Mayo(ITopping topping)
         {
             _topping = topping;
+        }
+        public Mayo(ISandwich sandwich)
+        {
+
         }
 
         public string GetDescription()

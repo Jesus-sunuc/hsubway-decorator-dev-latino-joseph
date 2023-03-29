@@ -87,3 +87,31 @@ Scenario: BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon = $8.75
     And customer orders bacon
     Then the sandwich will cost $8.75
     And the sandwich is described as "BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon"
+
+Scenario: BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon, Lettuce, Bacon, Cheese, Bacon
+    When a BLT sandwich on rye bread is ordered
+    And customer orders lettuce
+    And customer orders lettuce
+    And customer orders lettuce
+    And customer orders tomato
+    And customer orders bacon
+    And customer orders bacon
+    And customer orders bacon
+    And customer orders lettuce
+    And customer orders bacon
+    And customer orders cheese
+    And customer orders bacon
+    Then the sandwich will cost $10.50
+    And the sandwich is described as "BLT sandwich on rye with lettuce + lettuce + lettuce + tomato + bacon + bacon + bacon + lettuce + bacon + cheese + bacon"
+
+
+Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & price $4.25
+    When a chicken sandwich on white bread is ordered
+    And customer orders tomato
+    And customer orders BBQ
+    And customer orders mayo
+    Then the sandwich will cost $10.50
+    And the sandwich is described as "Chicken sandwich on white tomato + BBQ + mayo"
+
+
+    
