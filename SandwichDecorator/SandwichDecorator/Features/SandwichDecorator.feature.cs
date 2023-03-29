@@ -509,7 +509,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 66
     testRunner.And("the sandwich is described as \"Chicken sandwich on white bread + cheese + cheese +" +
-                        " cheese \"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        " cheese\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -639,13 +639,17 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon, Lettuce, " +
             "Bacon, Cheese, Bacon")]
+        [NUnit.Framework.CategoryAttribute("Toppings")]
+        [NUnit.Framework.CategoryAttribute("Sprint1")]
         public virtual void BLTOnRyeWithLettuceLettuceLettuceTomatoBaconBaconBaconLettuceBaconCheeseBacon()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Toppings",
+                    "Sprint1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon, Lettuce, " +
                     "Bacon, Cheese, Bacon", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 91
+#line 92
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -665,11 +669,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 92
-    testRunner.When("a BLT sandwich on rye bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 93
-    testRunner.And("customer orders lettuce", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("a BLT sandwich on rye bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 94
     testRunner.And("customer orders lettuce", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -678,10 +679,10 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And("customer orders lettuce", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 96
-    testRunner.And("customer orders tomato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("customer orders lettuce", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 97
-    testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("customer orders tomato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 98
     testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -690,21 +691,24 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 100
-    testRunner.And("customer orders lettuce", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 101
-    testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("customer orders lettuce", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 102
-    testRunner.And("customer orders cheese", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 103
     testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 103
+    testRunner.And("customer orders cheese", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 104
-    testRunner.Then("the sandwich will cost $10.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("customer orders bacon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 105
+    testRunner.Then("the sandwich will cost $10.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 106
     testRunner.And("the sandwich is described as \"BLT sandwich on rye with lettuce + lettuce + lettuc" +
                         "e + tomato + bacon + bacon + bacon + lettuce + bacon + cheese + bacon\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -714,12 +718,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & price $4.25")]
+        [NUnit.Framework.CategoryAttribute("Toppings")]
+        [NUnit.Framework.CategoryAttribute("Sprint1")]
         public virtual void ChickenOnWhiteTomatoBBQSauceMayoCorrectDescriptionPrice4_25()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Toppings",
+                    "Sprint1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & price $4.25", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 108
+#line 109
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -739,22 +747,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 109
+#line 110
     testRunner.When("a chicken sandwich on white bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 110
+#line 111
     testRunner.And("customer orders tomato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 111
+#line 112
     testRunner.And("customer orders BBQ", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 112
+#line 113
     testRunner.And("customer orders mayo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 113
+#line 114
     testRunner.Then("the sandwich will cost $10.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 114
+#line 115
     testRunner.And("the sandwich is described as \"Chicken sandwich on white tomato + BBQ + mayo\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

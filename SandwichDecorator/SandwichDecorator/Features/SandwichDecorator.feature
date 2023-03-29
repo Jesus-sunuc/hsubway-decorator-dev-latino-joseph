@@ -63,7 +63,7 @@ Scenario: Shredded chicken on white + cheese + cheese + cheese = $6.25
     When a chicken sandwich on white bread is ordered
     And customer orders cheese
     Then the sandwich will cost $6.25
-    And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese + cheese "
+    And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese + cheese"
 
 @Toppings
 Scenario: Shredded chicken on rye + cheese + lettuce + lettuce + lettuce + tomato + bacon = $7.00
@@ -88,6 +88,7 @@ Scenario: BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon = $8.75
     Then the sandwich will cost $8.75
     And the sandwich is described as "BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon"
 
+@Toppings @Sprint1
 Scenario: BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon, Lettuce, Bacon, Cheese, Bacon
     When a BLT sandwich on rye bread is ordered
     And customer orders lettuce
@@ -104,7 +105,7 @@ Scenario: BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon
     Then the sandwich will cost $10.50
     And the sandwich is described as "BLT sandwich on rye with lettuce + lettuce + lettuce + tomato + bacon + bacon + bacon + lettuce + bacon + cheese + bacon"
 
-
+@Toppings @Sprint1
 Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & price $4.25
     When a chicken sandwich on white bread is ordered
     And customer orders tomato
