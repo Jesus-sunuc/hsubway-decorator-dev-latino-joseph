@@ -8,38 +8,30 @@ namespace SandwichDecoratorLibrary
 {
     public class Mayo : ITopping
     {
-        private ITopping _topping;
-        private ISandwich sandwich;
-        private static int _serveCount = 0;
+        ISandwich Sandwich;
+        ITopping _topping;
+        decimal _serveCount = 0;
 
         public Mayo(ITopping topping)
         {
             _topping = topping;
+            _serveCount += topping.GetPrice();
         }
+
         public Mayo(ISandwich sandwich)
         {
-
+            Sandwich = sandwich;
+            _serveCount += sandwich.GetPrice();
         }
 
         public string GetDescription()
         {
-            /*return _topping.GetDescription();*/
-            return $"You served {_serveCount.ToString()}";
+            return "+ Mayo";
         }
 
         public decimal GetPrice()
         {
-            return _topping.GetPrice();
-        }
-
-        public int ServeCount
-        {
-            get { return _serveCount; }
-        }
-
-        public static void Serve()
-        {
-            _serveCount++;
+            return 0;
         }
     }
 }
