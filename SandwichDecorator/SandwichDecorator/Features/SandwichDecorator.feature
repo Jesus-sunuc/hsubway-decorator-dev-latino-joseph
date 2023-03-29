@@ -110,6 +110,7 @@ Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & pric
     And customer orders tomato
     And customer orders BBQ
     And customer orders mayo
+    And customer orders mustard
     Then the sandwich will cost $10.50
     And the sandwich is described as "Chicken sandwich on white tomato + BBQ + mayo"
 

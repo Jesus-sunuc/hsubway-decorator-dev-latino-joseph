@@ -752,9 +752,12 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And("customer orders mayo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 113
-    testRunner.Then("the sandwich will cost $10.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("customer orders mustard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 114
+    testRunner.Then("the sandwich will cost $10.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 115
     testRunner.And("the sandwich is described as \"Chicken sandwich on white tomato + BBQ + mayo\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
