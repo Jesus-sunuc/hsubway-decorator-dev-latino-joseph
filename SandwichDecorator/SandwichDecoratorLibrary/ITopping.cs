@@ -8,6 +8,8 @@ namespace SandwichDecoratorLibrary
 {
     public interface ITopping
     {
+        ISandwich Sandwich {get; set;}
+        ITopping Topping {get; set;}
         public decimal GetPrice();
         public string GetDescription();
     }

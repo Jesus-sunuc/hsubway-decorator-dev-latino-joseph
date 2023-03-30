@@ -7,7 +7,7 @@ public class Program
     {
         Console.Clear();
 
-        ISandwich userSandwich;
+        Object userSandwich;
 
         Console.WriteLine("Welcome to the subway sandwich producer!");
 
@@ -15,7 +15,7 @@ public class Program
 What type of sandwich do you wish to order?
 
 Press the '1' key for a BLT Sandwich
-Press the '2 key for a Chicken Sandwich
+Press the '2  key for a Chicken Sandwich
 Press the '3' key for a PBJ Sandwich
 
 If you don't select one of these options, your sandwich will be a Chicken Sandwich
@@ -37,8 +37,8 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
                 userSandwich = new ChickenSandwich(BreadChooser()); break;
         }
 
-        Console.WriteLine($"You have order a {userSandwich.GetDescription()}!");
-        Console.WriteLine($"Your current sandwich has a price of {userSandwich.GetPrice()}!");
+        Console.WriteLine($"You have order a {((ISandwich)userSandwich).GetDescription()}!");
+        Console.WriteLine($"Your current sandwich has a price of {((ISandwich)userSandwich).GetPrice()}!");
 
         bool finalDescionMade = false;
 
@@ -55,25 +55,29 @@ Else, press any other key to get your final sandwich description and price ...
             switch (Console.ReadKey(true).Key)
             { 
                 case ConsoleKey.D1:
-                    ToppingChooser(userSandwich); break;
+                    userSandwich = ToppingChooser(userSandwich); break;
 
                 default:
                     finalDescionMade=true; break;      
             }
         }
+
+        var Tuple = GetFinalPriceAndDescription(userSandwich);
+
+        Console.Clear();
+        Console.WriteLine($"You ordered a {Tuple.Item2}");
+        Console.WriteLine($"Your sandwich's final price is {Tuple.Item1}");
     }
-
-
-
 
     static Bread BreadChooser()
     {
+        Console.Clear();
         var bread = new Bread();
         Console.WriteLine(@"
 What type of Bread would you like with you order?
 
 Press the '1' key for White bread, White bread sandwich starts at $2.00.
-Press the '2 key for Wheat bread, Wheat bread costs $0.25 extra.
+Press the '2  key for Wheat bread, Wheat bread costs $0.25 extra.
 Press the '3' key for Rye bread, Rye bread costs $0.50 extra.
 
 If you don't select one of these options, your sandwich will have White bread
@@ -96,28 +100,30 @@ If you don't select one of these options, your sandwich will have White bread
         return bread;
     }
 
-
-
-
-
     static ITopping ToppingChooser(Object sanwichOrTopping) 
     {
+        Console.Clear();
         ITopping Topping;
 
-        Console.WriteLine(@"
+        var priceAndDescription = GetFinalPriceAndDescription(sanwichOrTopping);
+
+        Console.WriteLine(@$"
+Your sandwich currently is: {priceAndDescription.Item2}
+And has a cost: {priceAndDescription.Item1}
+
 What Topping do you wish to order?
 
 There are extra-cost toppings:
 
 Press the '1' key for Bacon, Bacon costs $0.75 per serving.
-Press the '2 key for Ham, Bacon costs $0.75 per serving.
+Press the '2  key for Ham, Bacon costs $0.60 per serving.
 Press the '3' key for Cheese, Cheese costs $0.75 per serving.
-Press the '4 key for Tomato, Tomato costs $0.25 each.
+Press the '4  key for Tomato, Tomato costs $0.25 each.
 Press the '5' key for Lettuce, Lettuce costs $0.25 each.
 
 And free toppings:
 Press the '6' key for Mayo.
-Press the '7 key for BBQ Sauce.
+Press the '7  key for BBQ Sauce.
 Press the '8' key for Mustard.
 
 If you don't select one of these options, your sandwich will have Mayo
@@ -225,6 +231,40 @@ If you don't select one of these options, your sandwich will have Mayo
         }
 
         return Topping;
+
+    }
+
+
+    static (decimal, string) GetFinalPriceAndDescription(object sandwich)
+    {
+        decimal finalPrice = 0;
+        string finalDescription = "";
+
+        if(sandwich is ISandwich)
+        {
+            finalPrice = ((ISandwich)sandwich).GetPrice();
+            finalDescription = ((ISandwich)sandwich).GetDescription() + finalDescription;
+            return (finalPrice, finalDescription);
+        }
+        else
+        {
+            if(((ITopping)sandwich).Sandwich != null)
+            {
+                var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Sandwich);
+                finalPrice = ((ITopping)sandwich).GetPrice();
+                finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
+                return(finalPrice, finalDescription);
+
+            }
+            else
+            {
+                var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Topping);
+                finalPrice = ((ITopping)sandwich).GetPrice();
+                finalDescription = Tuple.Item2 +  ((ITopping)sandwich).GetDescription() + finalDescription;
+                return(finalPrice, finalDescription);
+            }
+        }
+
 
     }
 }

@@ -8,30 +8,31 @@ namespace SandwichDecoratorLibrary
 {
     public class Mustard : ITopping
     {
-        ISandwich Sandwich;
-        ITopping _topping;
-        decimal _serveCount = 0;
+        public ISandwich Sandwich {get; set;}
+        public ITopping Topping {get; set;}
+        public decimal _serveCount = 0;
+        public decimal price = 0m;
 
         public Mustard(ITopping topping)
         {
-            _topping = topping;
-            _serveCount += topping.GetPrice();
+            Topping = topping;
+            price += topping.GetPrice();
         }
 
         public Mustard(ISandwich sandwich)
         {
             Sandwich = sandwich;
-            _serveCount += sandwich.GetPrice();
+            price += sandwich.GetPrice();
         }
 
         public string GetDescription()
         {
-            return "+ Mustard";
+            return " + Mustard";
         }
 
         public decimal GetPrice()
         {
-            return 0;
+            return price;
         }
     }
 }

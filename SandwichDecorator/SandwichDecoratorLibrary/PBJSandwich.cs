@@ -9,8 +9,8 @@ namespace SandwichDecoratorLibrary
 {
     public class PBJSandwich : ISandwich
     {
-        Bread bread;
-        decimal price = 2.75m;
+        public Bread bread;
+        public decimal price = 2.75m;
 
         public PBJSandwich(Bread b)
         {

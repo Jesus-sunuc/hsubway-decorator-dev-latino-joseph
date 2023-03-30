@@ -8,8 +8,8 @@ namespace SandwichDecoratorLibrary
 {
     public class Ham : ITopping
     {
-        ISandwich Sandwich;
-        ITopping Topping;
+        public ISandwich Sandwich {get; set;}
+        public ITopping Topping {get; set;}
         decimal price = .60m;
         public Ham(ITopping topping)
         {
@@ -29,7 +29,7 @@ namespace SandwichDecoratorLibrary
         }
         public string GetDescription()
         {
-            return "+ ham";
+            return " + ham";
         }
     }
 }

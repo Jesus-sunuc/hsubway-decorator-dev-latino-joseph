@@ -8,8 +8,8 @@ namespace SandwichDecoratorLibrary
 {
     public class Lettuce : ITopping
     {
-        ISandwich Sandwich;
-        ITopping Topping;
+        public ISandwich Sandwich {get; set;}
+        public ITopping Topping {get; set;}
         decimal price = .25m;
         public Lettuce(ITopping topping)
         {
@@ -29,7 +29,7 @@ namespace SandwichDecoratorLibrary
         }
         public string GetDescription()
         {
-            return "+ lettuce";
+            return " + lettuce";
         }
     }
 }

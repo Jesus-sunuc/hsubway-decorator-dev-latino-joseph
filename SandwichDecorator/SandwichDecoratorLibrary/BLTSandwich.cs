@@ -2,8 +2,8 @@
 {
     public class BLTSandwich: ISandwich
     {
-        Bread bread;
-        decimal price = 4.50m;
+        public Bread bread;
+        public decimal price = 4.50m;
 
         public BLTSandwich(Bread b)
         {
