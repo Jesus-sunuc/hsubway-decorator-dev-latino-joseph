@@ -8,30 +8,31 @@ namespace SandwichDecoratorLibrary
 {
     public class BBQ : ITopping
     {
-        ISandwich Sandwich;
-        ITopping _topping;
+        public ISandwich Sandwich {get; set;}
+        public ITopping Topping {get; set;}
         decimal _serveCount = 0;
+        public decimal price = 0m;
 
         public BBQ(ITopping topping)
         {
-            _topping = topping;
-            _serveCount += topping.GetPrice();
+            Topping = topping;
+            price += topping.GetPrice();
         }
 
         public BBQ(ISandwich sandwich)
         {
             Sandwich = sandwich;
-            _serveCount += sandwich.GetPrice();
+            price += sandwich.GetPrice();
         }
 
         public string GetDescription()
         {
-            return "+ BBQ";
+            return " + BBQ";
         }
 
         public decimal GetPrice()
         {
-            return 0;
+            return price;
         }
     }
 }

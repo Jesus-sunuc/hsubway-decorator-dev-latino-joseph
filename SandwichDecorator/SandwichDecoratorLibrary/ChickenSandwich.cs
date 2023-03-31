@@ -9,8 +9,8 @@ namespace SandwichDecoratorLibrary
 {
     public class ChickenSandwich : ISandwich
     {
-        Bread bread;
-        decimal price = 4.00m;
+        public Bread bread;
+        public decimal price = 4.00m;
         public ChickenSandwich(Bread b) 
         {
             bread = b;
