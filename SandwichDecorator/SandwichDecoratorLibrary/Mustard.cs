@@ -10,24 +10,27 @@ namespace SandwichDecoratorLibrary
     {
         public ISandwich Sandwich {get; set;}
         public ITopping Topping {get; set;}
-        public decimal _serveCount = 0;
-        public decimal price = 0m;
+        //public decimal _serveCount = 0;
+        decimal price = 0m;
+        string description;
 
         public Mustard(ITopping topping)
         {
             Topping = topping;
             price += topping.GetPrice();
+            description = $"{topping.GetDescription()} + mustard";
         }
 
         public Mustard(ISandwich sandwich)
         {
             Sandwich = sandwich;
             price += sandwich.GetPrice();
+            description = $"{sandwich.GetDescription()} + mustard";
         }
 
         public string GetDescription()
         {
-            return " + Mustard";
+            return description;
         }
 
         public decimal GetPrice()

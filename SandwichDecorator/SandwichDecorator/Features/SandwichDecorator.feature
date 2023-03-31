@@ -62,6 +62,8 @@ Scenario: Cost of chicken sandwich on rye bread
 Scenario: Shredded chicken on white + cheese + cheese + cheese = $6.25
     When a chicken sandwich on white bread is ordered
     And customer orders cheese
+    And customer orders cheese
+    And customer orders cheese
     Then the sandwich will cost $6.25
     And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese + cheese"
 
@@ -79,14 +81,14 @@ Scenario: Shredded chicken on rye + cheese + lettuce + lettuce + lettuce + tomat
 
 @Toppings
 Scenario: BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon = $8.75
-    When a BLT sandwich on wheat bread is ordered
+    When a BLT sandwich on rye bread is ordered
     And customer orders cheese
     And customer orders bacon
     And customer orders bacon
     And customer orders bacon
     And customer orders bacon
     Then the sandwich will cost $8.75
-    And the sandwich is described as "BLT sandwich on rye + cheese + bacon + bacon + bacon + bacon"
+    And the sandwich is described as "BLT sandwich on rye bread + cheese + bacon + bacon + bacon + bacon"
 
 @Toppings @Sprint1
 Scenario: BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon, Lettuce, Bacon, Cheese, Bacon
@@ -102,8 +104,8 @@ Scenario: BLT on Rye with Lettuce, Lettuce, Lettuce, Tomato, Bacon, Bacon, Bacon
     And customer orders bacon
     And customer orders cheese
     And customer orders bacon
-    Then the sandwich will cost $10.50
-    And the sandwich is described as "BLT sandwich on rye with lettuce + lettuce + lettuce + tomato + bacon + bacon + bacon + lettuce + bacon + cheese + bacon"
+    Then the sandwich will cost $10.75
+    And the sandwich is described as "BLT sandwich on rye bread + lettuce + lettuce + lettuce + tomato + bacon + bacon + bacon + lettuce + bacon + cheese + bacon"
 
 @Toppings @Sprint1
 Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & price $4.25
@@ -111,9 +113,8 @@ Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & pric
     And customer orders tomato
     And customer orders BBQ
     And customer orders mayo
-    And customer orders mustard
-    Then the sandwich will cost $10.50
-    And the sandwich is described as "Chicken sandwich on white tomato + BBQ + mayo"
+    Then the sandwich will cost $4.25
+    And the sandwich is described as "Chicken sandwich on white bread + tomato + BBQ + mayo"
 
 
     

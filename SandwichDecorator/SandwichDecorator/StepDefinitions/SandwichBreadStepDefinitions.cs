@@ -93,7 +93,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new Cheese(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [When(@"customer orders lettuce")]
@@ -110,7 +110,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new Lettuce(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [When(@"customer orders tomato")]
@@ -127,7 +127,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new Tomato(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [When(@"customer orders bacon")]
@@ -144,7 +144,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new Bacon(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [When(@"customer orders BBQ")]
@@ -161,7 +161,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new BBQ(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [When(@"customer orders mayo")]
@@ -178,7 +178,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new Mayo(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [When(@"customer orders mustard")]
@@ -195,7 +195,7 @@ namespace SandwichDecorator.StepDefinitions
             {
                 newtopping = new Mustard(sandwich);
             }
-            _sc.Set<ITopping>(topping, "topped");
+            _sc.Set<ITopping>(newtopping, "topped");
         }
 
         [Then(@"the sandwich will cost \$(.*)")]

@@ -12,17 +12,21 @@ namespace SandwichDecoratorLibrary
         public ISandwich Sandwich {get; set;}
         public ITopping Topping {get; set;}
         decimal price = .75m;
+        string description;
+
         public Bacon(ITopping topping)
         {
             Topping = topping;
 
             price += topping.GetPrice();
+            description = $"{topping.GetDescription()} + bacon";
         }
         public Bacon(ISandwich sandwich)
         {
             Sandwich = sandwich;
 
             price += sandwich.GetPrice();
+            description = $"{sandwich.GetDescription()} + bacon";
         }
         public decimal GetPrice()
         {
@@ -30,7 +34,7 @@ namespace SandwichDecoratorLibrary
         }
         public string GetDescription()
         {
-            return " + bacon";
+            return description;
         }
     }
 }
