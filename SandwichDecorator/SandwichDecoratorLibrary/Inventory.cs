@@ -20,12 +20,12 @@ namespace SandwichDecoratorLibrary
         int wheat;
         int rye;
         int bacon;
-        int ham;
-        int mustard;
         int BBQ;
         int cheese;
+        int ham;
         int lettuce;
         int mayo;
+        int mustard;
         int tomato;
 
         public Inventory() 

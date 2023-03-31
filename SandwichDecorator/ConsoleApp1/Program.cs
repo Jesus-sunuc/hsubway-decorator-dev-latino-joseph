@@ -5,8 +5,8 @@ public class Program
 { 
     static void Main()
     {
-        Inventory inventory = new Inventory();
-        Console.WriteLine(inventory.Report());
+        //Inventory inventory = new Inventory();
+        //Console.WriteLine(inventory.Report());
         Thread.Sleep(1000);
         Console.Clear();
 
@@ -45,7 +45,7 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
 
         bool finalDescionMade = false;
 
-        while(finalDescionMade == false)
+        while(!finalDescionMade)
         {
             Console.WriteLine(@"
 Would you like to order addittional toppings?
