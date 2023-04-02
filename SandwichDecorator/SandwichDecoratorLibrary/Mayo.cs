@@ -17,15 +17,13 @@ namespace SandwichDecoratorLibrary
         public Mayo(ITopping topping)
         {
             Topping = topping;
-            price += topping.GetPrice();
-            description = $"{topping.GetDescription()} + mayo";
+            description = " + mayo";
         }
 
         public Mayo(ISandwich sandwich)
         {
             Sandwich = sandwich;
-            price += sandwich.GetPrice();
-            description = $"{sandwich.GetDescription()} + mayo";
+            description = " + mayo";
         }
 
         public string GetDescription()

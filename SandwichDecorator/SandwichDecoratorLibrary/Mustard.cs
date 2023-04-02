@@ -17,15 +17,13 @@ namespace SandwichDecoratorLibrary
         public Mustard(ITopping topping)
         {
             Topping = topping;
-            price += topping.GetPrice();
-            description = $"{topping.GetDescription()} + mustard";
+            description = " + mustard";
         }
 
         public Mustard(ISandwich sandwich)
         {
             Sandwich = sandwich;
-            price += sandwich.GetPrice();
-            description = $"{sandwich.GetDescription()} + mustard";
+            description = "+ mustard";
         }
 
         public string GetDescription()

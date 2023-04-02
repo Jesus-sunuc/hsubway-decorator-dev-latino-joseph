@@ -1,18 +1,64 @@
 ﻿using SandwichDecoratorLibrary;
 using System.Threading;
 
-public class Program 
-{ 
+public class Program
+{
     static void Main()
     {
-        //Inventory inventory = new Inventory();
-        //Console.WriteLine(inventory.Report());
-        Thread.Sleep(1000);
         Console.Clear();
 
-        Object userSandwich;
+        //Create inventory and reset its stock
+        Inventory inventory = new Inventory();
+
+        bool restaurantRunning = true;
+
+        while (restaurantRunning)
+        {
+            if (inventory.IsEmpty())
+            {
+                Console.Clear();
+                Console.WriteLine("SORRY, WE'RE OUT OF STOCK!");
+                break;
+            }
+
+            Console.WriteLine(inventory.Report());
+
+            Console.WriteLine("To begin sandwich creation, press any key ...");
+
+            Console.ReadKey(true);
+
+            Sandwichmaker(inventory);
+
+            Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you wish to exit, press ay other key...");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.S:
+                    restaurantRunning = true;
+                    break;
+
+                default: restaurantRunning = false; break;
+            }
+        }
+
+        Console.WriteLine(inventory.Report());
+    }
+
+    //METHOD TO PRODUCE A SINGLE SANDWICH
+
+    static void Sandwichmaker(Inventory newInventory)
+    {
+        Console.Clear();
 
         Console.WriteLine("Welcome to the subway sandwich producer!");
+
+        //USER SELECTS TYPE OF BREAD
+
+        Bread userBread = BreadChooser();
+
+        //USER SELECTS TYPE OF SANDWICH
+
+        Object userSandwich;
 
         Console.WriteLine(@"
 What type of sandwich do you wish to order?
@@ -28,25 +74,29 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
         switch (Console.ReadKey(true).Key)
         {
             case ConsoleKey.D1:
-                userSandwich = new BLTSandwich(BreadChooser()); break;
+                userSandwich = new BLTSandwich(userBread); newInventory.SellBLT(userBread); break;
 
             case ConsoleKey.D2:
-                userSandwich = new ChickenSandwich(BreadChooser()); break;
+                userSandwich = new ChickenSandwich(userBread); newInventory.SellChicken(userBread); break;
 
             case ConsoleKey.D3:
-                userSandwich = new PBJSandwich(BreadChooser()); break;
+                userSandwich = new PBJSandwich(userBread); newInventory.SellPBJ(userBread); break;
 
             default:
-                userSandwich = new ChickenSandwich(BreadChooser()); break;
+                userSandwich = new ChickenSandwich(userBread); newInventory.SellChicken(userBread); break;
         }
 
-        Console.WriteLine($"You have order a {((ISandwich)userSandwich).GetDescription()}!");
+        Console.WriteLine($"You have ordered a {((ISandwich)userSandwich).GetDescription()}!");
         Console.WriteLine($"Your current sandwich has a price of {((ISandwich)userSandwich).GetPrice()}!");
+
+
+        //USER SELECTS TOPPINGS
 
         bool finalDescionMade = false;
 
-        while(!finalDescionMade)
+        while (!finalDescionMade)
         {
+
             Console.WriteLine(@"
 Would you like to order addittional toppings?
 
@@ -56,12 +106,20 @@ Else, press any other key to get your final sandwich description and price ...
 ");
 
             switch (Console.ReadKey(true).Key)
-            { 
+            {
                 case ConsoleKey.D1:
-                    userSandwich = ToppingChooser(userSandwich); break;
+                    userSandwich = ToppingChooser(userSandwich, newInventory);
+                    if (newInventory.IsEmpty())
+                    {
+                        Console.Clear();
+                        Console.WriteLine("SORRY, WE'RE OUT OF STOCK!");
+                        finalDescionMade = true;
+                        break;
+                    }
+                    break;
 
                 default:
-                    finalDescionMade=true; break;      
+                    finalDescionMade = true; break;
             }
         }
 
@@ -70,8 +128,11 @@ Else, press any other key to get your final sandwich description and price ...
         Console.Clear();
         Console.WriteLine($"You ordered a {Tuple.Item2}");
         Console.WriteLine($"Your sandwich's final price is {Tuple.Item1}");
+
     }
 
+
+    //METHOD TO CHOOSE A BREAD TYPE FOR THE SANDWICH
     static Bread BreadChooser()
     {
         Console.Clear();
@@ -85,7 +146,7 @@ Press the '3' key for Rye bread, Rye bread costs $0.50 extra.
 
 If you don't select one of these options, your sandwich will have White bread
 ");
-        switch(Console.ReadKey(true).Key)
+        switch (Console.ReadKey(true).Key)
         {
             case ConsoleKey.D1:
                 bread = Bread.white; break;
@@ -103,12 +164,16 @@ If you don't select one of these options, your sandwich will have White bread
         return bread;
     }
 
-    static ITopping ToppingChooser(Object sanwichOrTopping) 
+
+    //METHOD TO CHOOSE TOPPINGS FOR YOUR SANDWICH
+
+    static ITopping ToppingChooser(Object sanwichOrTopping, Inventory availableGoods)
     {
-        Console.Clear();
         ITopping Topping;
 
         var priceAndDescription = GetFinalPriceAndDescription(sanwichOrTopping);
+
+        Console.Clear();
 
         Console.WriteLine(@$"
 Your sandwich currently is: {priceAndDescription.Item2}
@@ -119,7 +184,7 @@ What Topping do you wish to order?
 There are extra-cost toppings:
 
 Press the '1' key for Bacon, Bacon costs $0.75 per serving.
-Press the '2  key for Ham, Bacon costs $0.60 per serving.
+Press the '2  key for Ham, Ham costs $0.60 per serving.
 Press the '3' key for Cheese, Cheese costs $0.75 per serving.
 Press the '4  key for Tomato, Tomato costs $0.25 each.
 Press the '5' key for Lettuce, Lettuce costs $0.25 each.
@@ -135,24 +200,28 @@ If you don't select one of these options, your sandwich will have Mayo
         switch (Console.ReadKey(true).Key)
         {
             case ConsoleKey.D1:
-                if(sanwichOrTopping is ITopping)
+                if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Bacon((ITopping)sanwichOrTopping);
+                    availableGoods.SellBacon();
                 }
                 else
                 {
                     Topping = new Bacon((ISandwich)sanwichOrTopping);
-                }          
+                    availableGoods.SellBacon();
+                }
                 break;
 
             case ConsoleKey.D2:
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Ham((ITopping)sanwichOrTopping);
+                    availableGoods.SellHam();
                 }
                 else
                 {
                     Topping = new Ham((ISandwich)sanwichOrTopping);
+                    availableGoods.SellHam();
                 }
                 break;
 
@@ -160,10 +229,12 @@ If you don't select one of these options, your sandwich will have Mayo
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Cheese((ITopping)sanwichOrTopping);
+                    availableGoods.SellCheese();
                 }
                 else
                 {
                     Topping = new Cheese((ISandwich)sanwichOrTopping);
+                    availableGoods.SellCheese();
                 }
                 break;
 
@@ -171,10 +242,12 @@ If you don't select one of these options, your sandwich will have Mayo
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Tomato((ITopping)sanwichOrTopping);
+                    availableGoods.SellTomato();
                 }
                 else
                 {
                     Topping = new Tomato((ISandwich)sanwichOrTopping);
+                    availableGoods.SellTomato();
                 }
                 break;
 
@@ -182,10 +255,12 @@ If you don't select one of these options, your sandwich will have Mayo
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Lettuce((ITopping)sanwichOrTopping);
+                    availableGoods.SellLettuce();
                 }
                 else
                 {
                     Topping = new Lettuce((ISandwich)sanwichOrTopping);
+                    availableGoods.SellLettuce();
                 }
                 break;
 
@@ -193,10 +268,12 @@ If you don't select one of these options, your sandwich will have Mayo
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Mayo((ITopping)sanwichOrTopping);
+                    availableGoods.SellMayo();
                 }
                 else
                 {
                     Topping = new Mayo((ISandwich)sanwichOrTopping);
+                    availableGoods.SellMayo();
                 }
                 break;
 
@@ -204,20 +281,24 @@ If you don't select one of these options, your sandwich will have Mayo
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new BBQ((ITopping)sanwichOrTopping);
+                    availableGoods.SellBBQ();
                 }
                 else
                 {
                     Topping = new BBQ((ISandwich)sanwichOrTopping);
+                    availableGoods.SellBBQ();
                 }
                 break;
             case ConsoleKey.D8:
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Mustard((ITopping)sanwichOrTopping);
+                    availableGoods.SellMustard();
                 }
                 else
                 {
                     Topping = new Mustard((ISandwich)sanwichOrTopping);
+                    availableGoods.SellMustard();
                 }
                 break;
 
@@ -225,10 +306,13 @@ If you don't select one of these options, your sandwich will have Mayo
                 if (sanwichOrTopping is ITopping)
                 {
                     Topping = new Mayo((ITopping)sanwichOrTopping);
+                    availableGoods.SellMayo();
                 }
                 else
                 {
                     Topping = new Mayo((ISandwich)sanwichOrTopping);
+                    availableGoods.SellMayo();
+
                 }
                 break;
         }
@@ -237,13 +321,14 @@ If you don't select one of these options, your sandwich will have Mayo
 
     }
 
+    //METHOD TO GET FINAL PRICE OF SANDWICH AND FULL DESCRIPTION RECURSIVELY
 
     static (decimal, string) GetFinalPriceAndDescription(object sandwich)
     {
         decimal finalPrice = 0;
         string finalDescription = "";
 
-        if(sandwich is ISandwich)
+        if (sandwich is ISandwich)
         {
             finalPrice = ((ISandwich)sandwich).GetPrice();
             finalDescription = ((ISandwich)sandwich).GetDescription() + finalDescription;
@@ -251,20 +336,20 @@ If you don't select one of these options, your sandwich will have Mayo
         }
         else
         {
-            if(((ITopping)sandwich).Sandwich != null)
+            if (((ITopping)sandwich).Sandwich != null)
             {
                 var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Sandwich);
-                finalPrice = ((ITopping)sandwich).GetPrice();
+                finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
                 finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
-                return(finalPrice, finalDescription);
+                return (finalPrice, finalDescription);
 
             }
             else
             {
                 var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Topping);
-                finalPrice = ((ITopping)sandwich).GetPrice();
-                finalDescription = Tuple.Item2 +  ((ITopping)sandwich).GetDescription() + finalDescription;
-                return(finalPrice, finalDescription);
+                finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
+                finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
+                return (finalPrice, finalDescription);
             }
         }
 

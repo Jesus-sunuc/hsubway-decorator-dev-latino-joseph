@@ -33,6 +33,16 @@ namespace SandwichDecoratorLibrary
             ResetStock();
         }
 
+        public bool IsEmpty()
+        {
+            if (sandwichStock == 0 || breadStock == 0 || toppingStock == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public void SellBLT(Bread bread)
         {
             BLT--;
@@ -89,20 +99,20 @@ namespace SandwichDecoratorLibrary
         public string Report()
         {
             return $"Sales made \n" +
-                $"BLT sandwiches {sandwichStock - BLT}\n" +
-                $"PBJ sandwiches {sandwichStock - PBJ}\n" +
-                $"Chicken sandwiches {sandwichStock - Chicken}\n" +
-                $"White bread {breadStock - white}\n" +
-                $"Wheat bread {breadStock - wheat}\n" +
-                $"Rye bread {breadStock - rye} \n" +
-                $"Bacon topping {toppingStock - bacon}\n" +
-                $"Ham topping {toppingStock - ham}\n" +
-                $"Mustard topping {toppingStock - mustard}\n" +
-                $"BBQ topping {toppingStock - BBQ}\n" +
-                $"Cheese topping {toppingStock - cheese}\n" +
-                $"Lettuce topping {toppingStock - lettuce}\n" +
-                $"Mayo topping {toppingStock - mayo}\n" +
-                $"Tomato topping {toppingStock- tomato}";
+                $"BLT sandwiches: {sandwichStock - BLT}\n" +
+                $"PBJ sandwiches: {sandwichStock - PBJ}\n" +
+                $"Chicken sandwiches: {sandwichStock - Chicken}\n" +
+                $"White bread: {breadStock - white}\n" +
+                $"Wheat bread: {breadStock - wheat}\n" +
+                $"Rye bread: {breadStock - rye} \n" +
+                $"Bacon topping: {toppingStock - bacon}\n" +
+                $"Ham topping: {toppingStock - ham}\n" +
+                $"Mustard topping: {toppingStock - mustard}\n" +
+                $"BBQ topping: {toppingStock - BBQ}\n" +
+                $"Cheese topping: {toppingStock - cheese}\n" +
+                $"Lettuce topping: {toppingStock - lettuce}\n" +
+                $"Mayo topping: {toppingStock - mayo}\n" +
+                $"Tomato topping: {toppingStock- tomato}";
 
         }
         public void ResetStock()

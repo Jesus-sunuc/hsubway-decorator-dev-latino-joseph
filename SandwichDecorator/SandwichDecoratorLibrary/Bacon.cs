@@ -17,16 +17,12 @@ namespace SandwichDecoratorLibrary
         public Bacon(ITopping topping)
         {
             Topping = topping;
-
-            price += topping.GetPrice();
-            description = $"{topping.GetDescription()} + bacon";
+            description = " + bacon";
         }
         public Bacon(ISandwich sandwich)
         {
             Sandwich = sandwich;
-
-            price += sandwich.GetPrice();
-            description = $"{sandwich.GetDescription()} + bacon";
+            description = " + bacon";
         }
         public decimal GetPrice()
         {
