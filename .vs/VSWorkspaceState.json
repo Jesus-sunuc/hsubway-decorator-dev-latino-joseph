@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SandwichDecorator",
+    "\\SandwichDecorator\\ConsoleApp1"
   ],
+  "SelectedNode": "\\SandwichDecorator\\ConsoleApp1\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

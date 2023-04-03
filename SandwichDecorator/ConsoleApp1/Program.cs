@@ -9,6 +9,7 @@ public class Program
 
         //Create inventory and reset its stock
         Inventory inventory = new Inventory();
+        List<string> soldSasndwiches = new List<string>();
 
         bool restaurantRunning = true;
 
@@ -27,7 +28,7 @@ public class Program
 
             Console.ReadKey(true);
 
-            Sandwichmaker(inventory);
+            Sandwichmaker(inventory, soldSasndwiches);
 
             Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you wish to exit, press any other key...");
 
@@ -41,12 +42,17 @@ public class Program
             }
         }
 
+        foreach (string sandwich in soldSasndwiches)
+        {
+            Console.WriteLine($"{sandwich}");
+        }
+
         Console.WriteLine(inventory.Report());
     }
 
     //METHOD TO PRODUCE A SINGLE SANDWICH
 
-    static void Sandwichmaker(Inventory newInventory)
+    static void Sandwichmaker(Inventory newInventory, List<string> soldSasndwiches)
     {
         Console.Clear();
 
@@ -124,6 +130,7 @@ Else, press any other key to get your final sandwich description and price ...
         }
 
         var Tuple = GetFinalPriceAndDescription(userSandwich);
+        soldSasndwiches.Add(Tuple.Item2);
 
         Console.Clear();
         Console.WriteLine($"You ordered a {Tuple.Item2}");
