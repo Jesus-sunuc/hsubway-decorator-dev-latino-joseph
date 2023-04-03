@@ -29,7 +29,7 @@ public class Program
 
             Sandwichmaker(inventory);
 
-            Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you wish to exit, press ay other key...");
+            Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you wish to exit, press any other key...");
 
             switch (Console.ReadKey(true).Key)
             {
