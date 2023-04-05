@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SandwichDecoratorLibrary
 {
-    internal class NoInventoryException
+    public class MissingIngredientException : Exception
     {
+        public MissingIngredientException(string message) : base(message)
+        {
+        }
     }
 }
+
+
