@@ -8,6 +8,39 @@ namespace SandwichDecorator.StepDefinitions
     [Binding]
     public class SandwichBreadStepDefinitions
     {
+        static (decimal, string) GetFinalPriceAndDescription(object sandwich)
+        {
+            decimal finalPrice = 0;
+            string finalDescription = "";
+
+            if (sandwich is ISandwich)
+            {
+                finalPrice = ((ISandwich)sandwich).GetPrice();
+                finalDescription = ((ISandwich)sandwich).GetDescription() + finalDescription;
+                return (finalPrice, finalDescription);
+            }
+            else
+            {
+                if (((ITopping)sandwich).Sandwich != null)
+                {
+                    var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Sandwich);
+                    finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
+                    finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
+                    return (finalPrice, finalDescription);
+
+                }
+                else
+                {
+                    var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Topping);
+                    finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
+                    finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
+                    return (finalPrice, finalDescription);
+                }
+            }
+
+
+        }
+
         private ScenarioContext _sc;
 
         public SandwichBreadStepDefinitions(ScenarioContext scenario)
@@ -204,13 +237,14 @@ namespace SandwichDecorator.StepDefinitions
             //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
+
             if (topping != null)
             {
-                topping.GetPrice().Should().BeApproximately(p0, 0.1m);
+                GetFinalPriceAndDescription(topping).Item1.Should().BeApproximately(p0, 0.1m);
             }
             else
             {
-                sandwich.GetPrice().Should().BeApproximately(p0, 0.1m);
+                GetFinalPriceAndDescription(sandwich).Item1.Should().BeApproximately(p0, 0.1m);
             }
         }
 
@@ -222,11 +256,11 @@ namespace SandwichDecorator.StepDefinitions
             ITopping topping = _sc.Get<ITopping>("topped");
             if (topping != null)
             {
-                topping.GetDescription().Should().Be(p0);
+                GetFinalPriceAndDescription(topping).Item2.Should().Be(p0);
             }
             else
             {
-                sandwich.GetDescription().Should().Be(p0);
+                GetFinalPriceAndDescription(sandwich).Item2.Should().Be(p0);
             }
         }
     }

@@ -7,51 +7,102 @@ public class Program
     {
         Console.Clear();
 
-        //Create inventory and reset its stock
-        Inventory inventory = new Inventory();
-        List<string> soldSasndwiches = new List<string>();
+        //Create inventory and list of sold sandwiches
+        Inventory inventory;
+        List<string> soldSandwiches = new List<string>();
 
+        //restuarantrunnning means the console app hasn't ended, dailyrunning means the current day hasn't ended
         bool restaurantRunning = true;
+        bool dayIsRunning = true;
+
+        //List that contains the reports of each day, and therefore, the number of days that the restaurant has been running
+        List<string> dailyReports = new List<string>();
 
         while (restaurantRunning)
         {
-            if (inventory.IsEmpty())
+            //Reset the inventory's stock
+            inventory = new Inventory();
+            soldSandwiches = new List<string>();
+            dayIsRunning = true;
+
+            Console.Clear();
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"| DAY {dailyReports.Count + 1} HAS BEGUN! |");
+            Console.WriteLine("--------------------");
+
+            while (dayIsRunning)
             {
-                Console.Clear();
-                Console.WriteLine("SORRY, WE'RE OUT OF STOCK!");
-                break;
-            }
-
-            Console.WriteLine(inventory.Report());
-
-            Console.WriteLine("To begin sandwich creation, press any key ...");
-
-            Console.ReadKey(true);
-
-            Sandwichmaker(inventory, soldSasndwiches);
-
-            Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you wish to exit, press any other key...");
-
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.S:
-                    restaurantRunning = true;
+                if (inventory.IsEmpty())
+                {
+                    Console.Clear();
+                    Console.WriteLine("SORRY, WE'RE OUT OF STOCK!");
                     break;
+                }
 
-                default: restaurantRunning = false; break;
+                Console.WriteLine("\n" + inventory.Report());
+
+                Console.WriteLine("\n" + "To begin sandwich creation, press any key ...");
+
+                Console.ReadKey(true);
+
+                Sandwichmaker(inventory, soldSandwiches);
+
+                Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you're done for the day, press any other key...");
+
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.S:
+                        continue;
+
+                    default: break;
+                }
+
+                //Adds the report for the day in the list
+
+                string completeReport = inventory.Report() + "\n" + "\n" + "Sandwiches made today:";
+
+                foreach (string sandwich in soldSandwiches)
+                {
+                    completeReport += "\n" + $"{sandwich}";
+                }
+
+                dailyReports.Add(completeReport);
+
+
+                Console.WriteLine($"Press any key to go to day {dailyReports.Count + 1}, else, if you wish to exit, press 'E' ");
+
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.E:
+                        restaurantRunning = false;
+                        dayIsRunning = false;
+                        break;
+
+                    default:
+                        restaurantRunning = true;
+                        dayIsRunning = false;
+                        break;
+                }
+
             }
+
         }
 
         Console.Clear();
-        Console.WriteLine("Sandwiches Sold");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine($"| F I N A L   R E P O R T S |");
+            Console.WriteLine("-----------------------------");
 
-        foreach (string sandwich in soldSasndwiches)
+        Console.WriteLine("The reports for each day are:");
+
+        for (int i = 0; i < dailyReports.Count; i++)
         {
-            Console.WriteLine($"{sandwich}\n");
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+            Console.WriteLine($"| D A Y : {i + 1} |");
+            Console.WriteLine("-------------");
+            Console.WriteLine(dailyReports[i]);
         }
-
-        Console.WriteLine("\n\nStock sold today\n");
-        Console.WriteLine(inventory.Report());
     }
 
     //METHOD TO PRODUCE A SINGLE SANDWICH
@@ -137,8 +188,12 @@ Else, press any other key to get your final sandwich description and price ...
         soldSasndwiches.Add(Tuple.Item2);
 
         Console.Clear();
-        Console.WriteLine($"You ordered a {Tuple.Item2}");
-        Console.WriteLine($"Your sandwich's final price is {Tuple.Item1}");
+         Console.WriteLine("-------------------------------");
+            Console.WriteLine($"| F I N A L   S A N D W I C H |");
+            Console.WriteLine("-------------------------------");
+        Console.WriteLine($"You ordered a: {Tuple.Item2}");
+        Console.WriteLine($"Your sandwich's final price is: {Tuple.Item1}");
+        Console.WriteLine();
 
     }
 
