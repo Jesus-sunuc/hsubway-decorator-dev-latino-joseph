@@ -123,5 +123,5 @@ Scenario: When there are only 3 bread, only one sandwich can be sold, and the se
     Then the sandwich will cost $4.50
     And the sandwich is described as "BLT sandwich on white bread"
     When a BLT sandwich on white bread is ordered
-    Then There will be a "No Inventory" error
+    Then It will throw a MissingIngredientException error
     

@@ -825,7 +825,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.When("a BLT sandwich on white bread is ordered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 126
-    testRunner.Then("There will be a \"No Inventory\" error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("It will throw a MissingIngredientException error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

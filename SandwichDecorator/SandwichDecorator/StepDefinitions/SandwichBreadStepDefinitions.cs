@@ -52,7 +52,15 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a BLT sandwich on white bread is ordered")]
         public void WhenABLTSandwichOnWhiteBreadIsOrdered()
         {
-            BLTSandwich sandwich = new BLTSandwich(Bread.white);
+            BLTSandwich sandwich = null;
+            try
+            {
+                sandwich = new BLTSandwich(Bread.white);
+            }
+            catch (MissingIngredientException ex)
+            {
+                _sc.Add("Exception", ex);
+            }
             _sc.Add("sandwich", sandwich);
         }
 
@@ -272,10 +280,11 @@ namespace SandwichDecorator.StepDefinitions
             }
         }
 
-        [Then(@"There will be a ""([^""]*)"" error")]
-        public void ThenThereWillBeAError(string p0)
+        [Then(@"It will throw a MissingIngredientException error")]
+        public void ThenItWillThrowAError()
         {
-            throw new PendingStepException();
+            MissingIngredientException ex = _sc.Get<MissingIngredientException>("Exception");
+            ex.Message.Should().Be($"Inventory of white is out of stock");
         }
 
     }

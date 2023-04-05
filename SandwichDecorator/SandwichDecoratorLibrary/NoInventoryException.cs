@@ -14,10 +14,8 @@ namespace SandwichDecoratorLibrary
     }
     public class NoInventoryException : Exception
     {
-        public NoInventoryException(ITopping t) : base($"Inventory of {t} is out of stock")
-        {
-
-        }
+        public NoInventoryException(ITopping t) : base($"Inventory of {t} is out of stock"){}
+        public NoInventoryException(string t) : base($"Inventory of {t} is out of stock") { }
     }
 }
 
