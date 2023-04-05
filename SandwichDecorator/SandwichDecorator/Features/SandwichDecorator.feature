@@ -116,5 +116,12 @@ Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & pric
     Then the sandwich will cost $4.25
     And the sandwich is described as "Chicken sandwich on white bread + tomato + BBQ + mayo"
 
-
+    @BLTSandwich @WhiteBread
+Scenario: When there are only 3 bread, only one sandwich can be sold, and the second will throw and exception
+    When there is only 3 slices of white bread
+    And a BLT sandwich on white bread is ordered
+    Then the sandwich will cost $4.50
+    And the sandwich is described as "BLT sandwich on white bread"
+    When a BLT sandwich on white bread is ordered
+    Then There will be a "No Inventory" error
     

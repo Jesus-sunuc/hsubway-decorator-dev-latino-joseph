@@ -16,7 +16,7 @@ namespace SandwichDecoratorLibrary
         int BLT;
         int PBJ;
         int Chicken;
-        int white;
+        public int white;
         int wheat;
         int rye;
         int bacon;
@@ -46,10 +46,24 @@ namespace SandwichDecoratorLibrary
         public void SellBLT(Bread bread)
         {
             BLT--;
-            if (bread == Bread.rye ) { rye = rye - 2; }
+            if (bread == Bread.rye) { rye = rye - 2; }
             else if (bread == Bread.wheat) { wheat = wheat - 2; }
-            else{ white = white - 2; }
+            else { white = white - 2; }
         }
+
+        /*        public void SellBLT(Bread bread)
+                {
+                    if (BLT <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2))
+                    {
+                        throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
+                    }
+
+                    BLT--;
+                    if (bread == Bread.rye) { rye = rye - 2; }
+                    else if (bread == Bread.wheat) { wheat = wheat - 2; }
+                    else { white = white - 2; }
+                }*/
+
         public void SellPBJ(Bread bread)
         {
             PBJ--;
