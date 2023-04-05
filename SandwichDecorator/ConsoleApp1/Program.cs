@@ -42,11 +42,15 @@ public class Program
             }
         }
 
+        Console.Clear();
+        Console.WriteLine("Sandwiches Sold");
+
         foreach (string sandwich in soldSasndwiches)
         {
-            Console.WriteLine($"{sandwich}");
+            Console.WriteLine($"{sandwich}\n");
         }
 
+        Console.WriteLine("\n\nStock sold today\n");
         Console.WriteLine(inventory.Report());
     }
 
