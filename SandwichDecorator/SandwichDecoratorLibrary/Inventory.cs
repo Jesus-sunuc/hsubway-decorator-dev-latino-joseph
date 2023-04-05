@@ -51,21 +51,26 @@ namespace SandwichDecoratorLibrary
             else { white = white - 2; }
         }
 
-        /*        public void SellBLT(Bread bread)
-                {
-                    if (BLT <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2))
-                    {
-                        throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
-                    }
+        public void SellBLT(Bread bread)
+        {
+            if (BLT <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || toppingStock <= 0 || sandwichStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
+            }
 
-                    BLT--;
-                    if (bread == Bread.rye) { rye = rye - 2; }
-                    else if (bread == Bread.wheat) { wheat = wheat - 2; }
-                    else { white = white - 2; }
-                }*/
+            BLT--;
+            if (bread == Bread.rye) { rye = rye - 2; }
+            else if (bread == Bread.wheat) { wheat = wheat - 2; }
+            else { white = white - 2; }
+        }
 
         public void SellPBJ(Bread bread)
         {
+            if (PBJ <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || toppingStock <= 0 || sandwichStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
+            }
+
             PBJ--;
             if (bread == Bread.rye) { rye = rye - 2; }
             else if (bread == Bread.wheat) { wheat = wheat - 2; }
@@ -73,6 +78,11 @@ namespace SandwichDecoratorLibrary
         }
         public void SellChicken(Bread bread)
         {
+            if (Chicken <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || toppingStock <= 0 || sandwichStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
+            }
+
             Chicken--;
             if (bread == Bread.rye) { rye = rye - 2; }
             else if (bread == Bread.wheat) { wheat = wheat - 2; }
