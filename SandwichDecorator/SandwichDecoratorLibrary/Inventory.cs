@@ -16,7 +16,7 @@ namespace SandwichDecoratorLibrary
         int BLT;
         int PBJ;
         int Chicken;
-        int white;
+        public int white;
         int wheat;
         int rye;
         int bacon;

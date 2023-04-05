@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Documentation",
     "\\SandwichDecorator",
-    "\\SandwichDecorator\\SandwichDecorator",
-    "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions"
+    "\\SandwichDecorator\\ConsoleApp1"
   ],
-  "SelectedNode": "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions\\SandwichBreadStepDefinitions.cs",
+  "SelectedNode": "\\SandwichDecorator\\ConsoleApp1\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -231,6 +231,14 @@ namespace SandwichDecorator.StepDefinitions
             _sc.Set<ITopping>(newtopping, "topped");
         }
 
+        [When(@"there is only (.*) slices of white bread")]
+        public void WhenThereIsOnlySlicesOfWhiteBread(int p0)
+        {
+            Inventory inv = new Inventory();
+            inv.white = 3;
+            _sc.Add("inventory", inv);
+        }
+
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)
         {
@@ -263,5 +271,12 @@ namespace SandwichDecorator.StepDefinitions
                 GetFinalPriceAndDescription(sandwich).Item2.Should().Be(p0);
             }
         }
+
+        [Then(@"There will be a ""([^""]*)"" error")]
+        public void ThenThereWillBeAError(string p0)
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
