@@ -37,8 +37,6 @@ namespace SandwichDecorator.StepDefinitions
                     return (finalPrice, finalDescription);
                 }
             }
-
-
         }
 
         private ScenarioContext _sc;
