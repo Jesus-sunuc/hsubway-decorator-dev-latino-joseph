@@ -3,9 +3,10 @@
     "",
     "\\Documentation",
     "\\SandwichDecorator",
+    "\\SandwichDecorator\\ConsoleApp1",
     "\\SandwichDecorator\\SandwichDecorator",
     "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions"
   ],
-  "SelectedNode": "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions\\SandwichBreadStepDefinitions.cs",
+  "SelectedNode": "\\SandwichDecorator\\ConsoleApp1\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

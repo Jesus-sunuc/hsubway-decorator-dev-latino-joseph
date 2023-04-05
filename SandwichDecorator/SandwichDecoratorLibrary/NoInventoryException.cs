@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SandwichDecoratorLibrary
 {
-    internal class NoInventoryException
+    public class NoInventoryException : Exception
     {
+        public NoInventoryException(ITopping t) : base($"Inventory of {t} is out of stock") 
+        {
+            
+        }
     }
 }
