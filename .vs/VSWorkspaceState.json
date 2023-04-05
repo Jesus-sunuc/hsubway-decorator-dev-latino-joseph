@@ -5,8 +5,9 @@
     "\\SandwichDecorator",
     "\\SandwichDecorator\\ConsoleApp1",
     "\\SandwichDecorator\\SandwichDecorator",
+    "\\SandwichDecorator\\SandwichDecoratorLibrary",
     "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions"
   ],
-  "SelectedNode": "\\SandwichDecorator\\SandwichDecorator.sln",
+  "SelectedNode": "\\SandwichDecorator\\SandwichDecoratorLibrary\\NoInventoryException.cs",
   "PreviewInSolutionExplorer": false
 }

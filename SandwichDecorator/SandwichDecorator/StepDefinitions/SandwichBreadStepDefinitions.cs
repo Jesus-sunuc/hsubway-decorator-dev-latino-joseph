@@ -45,20 +45,32 @@ namespace SandwichDecorator.StepDefinitions
         {
             _sc = scenario;
             _sc.Add("topped", null);
+            _sc.Add("inventory", new Inventory());
+        }
+        
+        [When(@"there is only (.*) slices of white bread")]
+        public void WhenThereIsOnlySlicesOfWhiteBread(int p0)
+        {
+            Inventory inventory = _sc.Get<Inventory>("inventory");
+            inventory.white = 3;
+            _sc.Set<Inventory>(inventory, "inventory");
         }
 
         [When(@"a BLT sandwich on white bread is ordered")]
         public void WhenABLTSandwichOnWhiteBreadIsOrdered()
         {
+            Inventory inventory = _sc.Get<Inventory>("inventory");
             BLTSandwich sandwich = null;
             try
             {
+                inventory.SellBLT(Bread.white);
                 sandwich = new BLTSandwich(Bread.white);
             }
             catch (MissingIngredientException ex)
             {
                 _sc.Add("Exception", ex);
             }
+            _sc.Set<Inventory>(inventory, "inventory");
             _sc.Add("sandwich", sandwich);
         }
 
@@ -237,13 +249,6 @@ namespace SandwichDecorator.StepDefinitions
             _sc.Set<ITopping>(newtopping, "topped");
         }
 
-        [When(@"there is only (.*) slices of white bread")]
-        public void WhenThereIsOnlySlicesOfWhiteBread(int p0)
-        {
-            Inventory inv = new Inventory();
-            inv.white = 3;
-            _sc.Add("inventory", inv);
-        }
 
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)
