@@ -290,5 +290,21 @@ namespace SandwichDecorator.StepDefinitions
             ex.Message.Should().Be($"Inventory of white is out of stock");
         }
 
+        /*[Then(@"the total daily sales should be \$(.*)")]
+        public void ThenTheTotalDailySalesShouldBe(Decimal p0)
+        {
+            //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
+            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
+            ITopping topping = _sc.Get<ITopping>("topped");
+
+            if (topping != null)
+            {
+                GetFinalPriceAndDescription(topping).Item1.Should().BeApproximately(p0, 0.1m);
+            }
+            else
+            {
+                GetFinalPriceAndDescription(sandwich).Item1.Should().BeApproximately(p0, 0.1m);
+            }
+        }*/
     }
 }
