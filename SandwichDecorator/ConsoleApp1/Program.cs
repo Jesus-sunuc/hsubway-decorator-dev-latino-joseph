@@ -142,7 +142,10 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
                     newInventory.SellBLT(userBread);
                 }
 
-                catch (Exception ex) { Console.WriteLine(ex.Message); };
+                catch (Exception ex) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.Message); 
+                    };
 
                 break;
 
@@ -173,6 +176,7 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
                 userSandwich = new ChickenSandwich(userBread); newInventory.SellChicken(userBread); break;
         }
 
+        Console.WriteLine();
         Console.WriteLine($"You have ordered a {((ISandwich)userSandwich).GetDescription()}!");
         Console.WriteLine($"Your current sandwich has a price of {((ISandwich)userSandwich).GetPrice()}!");
 
