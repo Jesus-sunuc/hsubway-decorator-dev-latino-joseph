@@ -43,13 +43,7 @@ namespace SandwichDecoratorLibrary
             return false;
         }
 
-        public void SellBLT(Bread bread)
-        {
-            BLT--;
-            if (bread == Bread.rye) { rye = rye - 2; }
-            else if (bread == Bread.wheat) { wheat = wheat - 2; }
-            else { white = white - 2; }
-        }
+        
 
         public void SellBLT(Bread bread)
         {

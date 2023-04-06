@@ -116,7 +116,7 @@ Scenario: Chicken on White, Tomato, BBQ Sauce, Mayo) {correct description & pric
     Then the sandwich will cost $4.25
     And the sandwich is described as "Chicken sandwich on white bread + tomato + BBQ + mayo"
 
-    @BLTSandwich @WhiteBread
+@Exceptions
 Scenario: When there are only 3 bread, only one sandwich can be sold, and the second will throw and exception
     When there is only 3 slices of white bread
     And a BLT sandwich on white bread is ordered
@@ -125,7 +125,7 @@ Scenario: When there are only 3 bread, only one sandwich can be sold, and the se
     When a BLT sandwich on white bread is ordered
     Then It will throw a MissingIngredientException error
 
-@Test 7
+@Test_7
 Scenario: If on a day I sell three sandwiches 
     When a chicken sandwich on white bread is ordered
     And customer orders cheese
@@ -150,4 +150,4 @@ Scenario: If on a day I sell three sandwiches
     And customer orders bacon
     Then the sandwich will cost $8.75
     And the sandwich is described as "BLT sandwich on rye bread + cheese + bacon + bacon + bacon + bacon" 
-    The the total daily sales should be $22
+    And The the total daily sales should be $22

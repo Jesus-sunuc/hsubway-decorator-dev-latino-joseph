@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Documentation",
-    "\\SandwichDecorator",
-    "\\SandwichDecorator\\ConsoleApp1",
-    "\\SandwichDecorator\\SandwichDecorator",
-    "\\SandwichDecorator\\SandwichDecoratorLibrary",
-    "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions"
+    ""
   ],
-  "SelectedNode": "\\SandwichDecorator\\SandwichDecoratorLibrary\\NoInventoryException.cs",
   "PreviewInSolutionExplorer": false
 }
