@@ -11,7 +11,7 @@ namespace SandwichDecoratorLibrary
     {
         int sandwichStock = 10;
         int breadStock = 50;
-        int toppingStock = 4;
+        int toppingStock = 2;
 
         int BLT;
         int PBJ;
@@ -45,7 +45,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellBLT(Bread bread)
         {
-            if (BLT <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || toppingStock <= 0 || sandwichStock <= 0)
+            if (BLT <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || sandwichStock <= 0)
             {
                 throw new MissingIngredientException("Cannot sell BLT sandwich due to missing of bread");
             }
@@ -58,7 +58,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellPBJ(Bread bread)
         {
-            if (PBJ <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || toppingStock <= 0 || sandwichStock <= 0)
+            if (PBJ <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || sandwichStock <= 0)
             {
                 throw new MissingIngredientException("Cannot sell BLT sandwich due to missing bread.");
             }
@@ -82,41 +82,79 @@ namespace SandwichDecoratorLibrary
         }
         public void SellBacon()
         {
-            bacon--;
-            if(toppingStock <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing bacon.");
+                throw new MissingIngredientException("Cannot sell bacon due to missing ingredient.");
             }
 
+            bacon--;
+
         }
+
         public void SellHam()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing ham.");
+            }
             ham--;
+
         }
+
         public void SellMustard()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing mustard.");
+            }
             mustard--;
         }
+
         public void SellBBQ()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing BBQ topping.");
+            }
             BBQ--;
         }
+
         public void SellCheese()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing cheese topping.");
+            }
             cheese--;
         }
+
         public void SellLettuce()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing lettuce topping.");
+            }
             lettuce--;
         }
+
         public void SellMayo()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing mayo topping.");
+            }
             mayo--;
         }
+
         public void SellTomato()
         {
+            if (toppingStock <= 0)
+            {
+                throw new MissingIngredientException("Cannot sell the sandwich due to missing tomato topping.");
+            }
             tomato--;
         }
+
         public string Report()
         {
             return $"Sales made \n" +
