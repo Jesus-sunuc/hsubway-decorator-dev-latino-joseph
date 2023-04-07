@@ -46,6 +46,7 @@ namespace SandwichDecorator.StepDefinitions
             _sc = scenario;
             _sc.Add("topped", null);
             _sc.Add("inventory", new Inventory());
+            _sc.Add("sandwich", null);
         }
         
         [When(@"there is only (.*) slices of white bread")]
@@ -71,63 +72,63 @@ namespace SandwichDecorator.StepDefinitions
                 _sc.Add("Exception", ex);
             }
             _sc.Set<Inventory>(inventory, "inventory");
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a BLT sandwich on wheat bread is ordered")]
         public void WhenABLTSandwichOnWheatBreadIsOrdered()
         {
             BLTSandwich sandwich = new BLTSandwich(Bread.wheat);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a BLT sandwich on rye bread is ordered")]
         public void WhenABLTSandwichOnRyeBreadIsOrdered()
         {
             BLTSandwich sandwich = new BLTSandwich(Bread.rye);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a PBJ sandwich on white bread is ordered")]
         public void WhenAPBJSandwichOnWhiteBreadIsOrdered()
         {
             PBJSandwich sandwich = new PBJSandwich(Bread.white);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a PBJ sandwich on wheat bread is ordered")]
         public void WhenAPBJSandwichOnWheatBreadIsOrdered()
         {
             PBJSandwich sandwich = new PBJSandwich(Bread.wheat);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a PBJ sandwich on rye bread is ordered")]
         public void WhenAPBJSandwichOnRyeBreadIsOrdered()
         {
             PBJSandwich sandwich = new PBJSandwich(Bread.rye);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a chicken sandwich on white bread is ordered")]
         public void WhenAChickenSandwichOnWhiteBreadIsOrdered()
         {
             ChickenSandwich sandwich = new ChickenSandwich(Bread.white);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a chicken sandwich on wheat bread is ordered")]
         public void WhenAChickenSandwichOnWheatBreadIsOrdered()
         {
             ChickenSandwich sandwich = new ChickenSandwich(Bread.wheat);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"a chicken sandwich on rye bread is ordered")]
         public void WhenAChickenSandwichOnRyeBreadIsOrdered()
         {
             ChickenSandwich sandwich = new ChickenSandwich(Bread.rye);
-            _sc.Add("sandwich", sandwich);
+            _sc.Set<ISandwich>(sandwich, "sandwich");
         }
 
         [When(@"customer orders cheese")]
@@ -253,7 +254,6 @@ namespace SandwichDecorator.StepDefinitions
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)
         {
-            //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
 
@@ -270,7 +270,6 @@ namespace SandwichDecorator.StepDefinitions
         [Then(@"the sandwich is described as ""([^""]*)""")]
         public void ThenTheSandwichIsDescribedAs(string p0)
         {
-            //_sc.Get<ISandwich>("sandwich").GetDescription().Should().Be(p0);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
             if (topping != null)
@@ -287,13 +286,12 @@ namespace SandwichDecorator.StepDefinitions
         public void ThenItWillThrowAError()
         {
             MissingIngredientException ex = _sc.Get<MissingIngredientException>("Exception");
-            ex.Message.Should().Be($"Inventory of white is out of stock");
+            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing of bread");
         }
 
-        /*[Then(@"the total daily sales should be \$(.*)")]
+        [Then(@"the total daily sales should be \$(.*)")]
         public void ThenTheTotalDailySalesShouldBe(Decimal p0)
         {
-            //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
 
@@ -305,6 +303,6 @@ namespace SandwichDecorator.StepDefinitions
             {
                 GetFinalPriceAndDescription(sandwich).Item1.Should().BeApproximately(p0, 0.1m);
             }
-        }*/
+        }
     }
 }

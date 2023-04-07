@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{B9B45CA8-4E15-43D6-BF68-0A8536BD6E1D}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.ConsoleApp1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SandwichDecorator/Features/SandwichDecorator.feature.cs">
+    <Files>
+      <File FileName="SandwichDecorator/Features/SandwichDecorator.feature.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SandwichDecorator" expanded="True">
+            <Node name="SandwichDecorator" expanded="True">
+              <Node name="Features" expanded="True">
+                <Node name="SandwichDecorator.feature.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="SandwichDecorator" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

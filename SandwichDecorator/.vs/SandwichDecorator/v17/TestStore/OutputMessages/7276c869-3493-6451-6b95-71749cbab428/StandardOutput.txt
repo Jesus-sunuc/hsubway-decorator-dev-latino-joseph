@@ -1,0 +1,190 @@
+When a chicken sandwich on white bread is ordered
+-> done: SandwichBreadStepDefinitions.WhenAChickenSandwichOnWhiteBreadIsOrdered() (0.0s)
+And customer orders cheese
+-> done: SandwichBreadStepDefinitions.WhenCustomerOrdersCheese() (0.0s)
+And customer orders cheese
+-> done: SandwichBreadStepDefinitions.WhenCustomerOrdersCheese() (0.0s)
+And customer orders cheese
+-> done: SandwichBreadStepDefinitions.WhenCustomerOrdersCheese() (0.0s)
+Then the sandwich will cost $6.25
+-> done: SandwichBreadStepDefinitions.ThenTheSandwichWillCost(6.25) (0.0s)
+And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese + cheese"
+-> done: SandwichBreadStepDefinitions.ThenTheSandwichIsDescribedAs("Chicken sandwich ...") (0.0s)
+And a chicken sandwich on rye bread is ordered
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"a chicken sandwich on rye bread is ordered")]
+        public void ThenAChickenSandwichOnRyeBreadIsOrdered()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders cheese
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders cheese")]
+        public void ThenCustomerOrdersCheese()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders lettuce
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders lettuce")]
+        public void ThenCustomerOrdersLettuce()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders lettuce
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders lettuce")]
+        public void ThenCustomerOrdersLettuce()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders lettuce
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders lettuce")]
+        public void ThenCustomerOrdersLettuce()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders tomato
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders tomato")]
+        public void ThenCustomerOrdersTomato()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders bacon
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders bacon")]
+        public void ThenCustomerOrdersBacon()
+        {
+            _scenarioContext.Pending();
+        }
+
+Then the sandwich will cost $7.00
+-> skipped because of previous errors
+And the sandwich is described as "Chicken sandwich on rye bread + cheese + lettuce + lettuce + lettuce + tomato + bacon"
+-> skipped because of previous errors
+And a BLT sandwich on rye bread is ordered
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"a BLT sandwich on rye bread is ordered")]
+        public void ThenABLTSandwichOnRyeBreadIsOrdered()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders cheese
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders cheese")]
+        public void ThenCustomerOrdersCheese()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders bacon
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders bacon")]
+        public void ThenCustomerOrdersBacon()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders bacon
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders bacon")]
+        public void ThenCustomerOrdersBacon()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders bacon
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders bacon")]
+        public void ThenCustomerOrdersBacon()
+        {
+            _scenarioContext.Pending();
+        }
+
+And customer orders bacon
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"customer orders bacon")]
+        public void ThenCustomerOrdersBacon()
+        {
+            _scenarioContext.Pending();
+        }
+
+Then the sandwich will cost $8.75
+-> skipped because of previous errors
+And the sandwich is described as "BLT sandwich on rye bread + cheese + bacon + bacon + bacon + bacon"
+-> skipped because of previous errors
+And The the total daily sales should be $22
+-> No matching step definition found for the step. Use the following code to create one:
+        [Then(@"The the total daily sales should be \$(.*)")]
+        public void ThenTheTheTotalDailySalesShouldBe(int p0)
+        {
+            _scenarioContext.Pending();
+        }
+
+No matching step definition found for one or more steps.
+using System;
+using TechTalk.SpecFlow;
+
+namespace MyNamespace
+{
+    [Binding]
+    public class StepDefinitions
+    {
+        private readonly ScenarioContext _scenarioContext;
+
+        public StepDefinitions(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+        [Then(@"a chicken sandwich on rye bread is ordered")]
+        public void ThenAChickenSandwichOnRyeBreadIsOrdered()
+        {
+            _scenarioContext.Pending();
+        }
+        
+        [Then(@"customer orders cheese")]
+        public void ThenCustomerOrdersCheese()
+        {
+            _scenarioContext.Pending();
+        }
+        
+        [Then(@"customer orders lettuce")]
+        public void ThenCustomerOrdersLettuce()
+        {
+            _scenarioContext.Pending();
+        }
+        
+        [Then(@"customer orders tomato")]
+        public void ThenCustomerOrdersTomato()
+        {
+            _scenarioContext.Pending();
+        }
+        
+        [Then(@"customer orders bacon")]
+        public void ThenCustomerOrdersBacon()
+        {
+            _scenarioContext.Pending();
+        }
+        
+        [Then(@"a BLT sandwich on rye bread is ordered")]
+        public void ThenABLTSandwichOnRyeBreadIsOrdered()
+        {
+            _scenarioContext.Pending();
+        }
+        
+        [Then(@"The the total daily sales should be \$(.*)")]
+        public void ThenTheTheTotalDailySalesShouldBe(int p0)
+        {
+            _scenarioContext.Pending();
+        }
+    }
+}
