@@ -1,0 +1,23 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/hsubway-decorator-dev-latino-joseph4/v17/.wsuo
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/SandwichDecorator/.vs/ProjectEvaluation/sandwichdecorator.metadata.v6.1
+/SandwichDecorator/.vs/ProjectEvaluation/sandwichdecorator.projects.v6.1
+/SandwichDecorator/.vs/SandwichDecorator/DesignTimeBuild/.dtbcache.v2
+/SandwichDecorator/.vs/SandwichDecorator/FileContentIndex/555a6069-3f89-4023-b730-931ba00d7a21.vsidx
+/SandwichDecorator/.vs/SandwichDecorator/FileContentIndex/5f10a045-8e8e-4d5b-b79b-2e6b675fdec3.vsidx
+/SandwichDecorator/.vs/SandwichDecorator/FileContentIndex/974501dd-b9cf-4662-9620-5042893188c3.vsidx
+/SandwichDecorator/.vs/SandwichDecorator/v17/TestStore/0/009.testlog
+/SandwichDecorator/.vs/SandwichDecorator/v17/.suo
+/SandwichDecorator/SandwichDecorator/obj/Debug/net6.0/SandwichDecorator.csproj.AssemblyReference.cache
+/SandwichDecorator/ConsoleApp1/obj/Debug/net6.0/ConsoleApp1.csproj.AssemblyReference.cache
+/.vs/hsubway-decorator-dev-latino-joseph/FileContentIndex/19f8ab6f-17c2-4d31-97ac-cac0463e9d10.vsidx
+/.vs/hsubway-decorator-dev-latino-joseph/FileContentIndex/4a64117a-b014-4bb6-8a33-931776a5a0fc.vsidx
+*.vsidx
+/.vs/hsubway-decorator-dev-latino-joseph/FileContentIndex/57cb792d-b23a-47dd-91bf-4837e480b9d1.vsidx
+/.vs/hsubway-decorator-dev-latino-joseph/FileContentIndex/94510d27-e5c4-4110-a2c2-651f03d212c6.vsidx
+/.vs/hsubway-decorator-dev-latino-joseph/FileContentIndex/b50bdc98-dd14-478e-9c4d-8359a64a4892.vsidx
