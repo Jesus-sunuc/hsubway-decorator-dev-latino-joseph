@@ -9,9 +9,9 @@ namespace SandwichDecoratorLibrary
 {
     public class Inventory
     {
-        int sandwichStock = 5;
-        int breadStock = 5;
-        int toppingStock = 2;
+        int sandwichStock = 10;
+        int breadStock = 50;
+        int toppingStock = 4000;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
@@ -51,14 +51,16 @@ namespace SandwichDecoratorLibrary
             if (breadStock <= 0)
             {
                 Console.WriteLine("Cannot sell BLT sandwich due to missing of bread");
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
             }
             if (toppingStock <= 0)
             {
                 Console.WriteLine("Cannot sell BLT sandwich");
             }
 
-            breadStock -= 2;
+            breadStock = breadStock - 2;
             sandwichStock--;
+
             BLT++;
             if (bread == Bread.rye) { rye += 2; }
             else if (bread == Bread.wheat) { wheat += 2; }
@@ -69,7 +71,7 @@ namespace SandwichDecoratorLibrary
         {
             if (breadStock <= 0)
             {
-                Console.WriteLine("Cannot sell BLT sandwich due to missing bread.");
+                Console.WriteLine("Cannot sell PBJ sandwich due to missing bread.");
             }
 
             if (toppingStock <= 0)
@@ -77,7 +79,7 @@ namespace SandwichDecoratorLibrary
                 Console.WriteLine("Cannot sell PBJ sandwich");
             }
 
-            breadStock -= 2;
+            breadStock = breadStock - 2;
             sandwichStock--;
 
             PBJ++;
@@ -89,7 +91,7 @@ namespace SandwichDecoratorLibrary
         {
             if (breadStock <= 0)
             {;
-                Console.WriteLine("Cannot sell BLT sandwich due to missing bread.");
+                Console.WriteLine("Cannot sell Chicken sandwich due to missing bread.");
             }
 
             if (toppingStock <= 0)
@@ -97,7 +99,7 @@ namespace SandwichDecoratorLibrary
                 Console.WriteLine("Cannot sell Chicken sandwich");
             }
 
-            breadStock -= 2;
+            breadStock = breadStock - 2;
             sandwichStock--;
             Chicken++;
             if (bread == Bread.rye) { rye += 2; }

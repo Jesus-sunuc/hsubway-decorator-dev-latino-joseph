@@ -490,22 +490,38 @@ If you don't select one of these options, your sandwich will have Mayo
         switch (num.Next(0, 3))
         {
             case 0:
-               
-                    randomSandwich = new BLTSandwich(randomBread);
-                    newInventory.SellBLT(randomBread);                     
+                randomSandwich = new BLTSandwich(randomBread);
+                try
+                {
+                    newInventory.SellBLT(randomBread);
+                }
+
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.Message);
+                };
                 break;
 
             case 1:
-               
-                    randomSandwich = new ChickenSandwich(randomBread);
-                    newInventory.SellChicken(randomBread);          
+                randomSandwich = new ChickenSandwich(randomBread);
+                try
+                {
+                    newInventory.SellChicken(randomBread);
+                }
+
+                catch (Exception ex) { Console.WriteLine(ex.Message); };
                 break;
 
             case 2:
-                
-                    randomSandwich = new PBJSandwich(randomBread);
+                randomSandwich = new PBJSandwich(randomBread);
+                try
+                {
                     newInventory.SellPBJ(randomBread);
-           
+                }
+
+                catch (Exception ex) { Console.WriteLine(ex.Message); };
+
                 break;
         }
 
