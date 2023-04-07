@@ -85,7 +85,7 @@ namespace SandwichDecoratorLibrary
         }
         public void SellBacon()
         {
-            if (toppingStock <= 0)
+            if (bacon <= 0)
             {
                 throw new MissingIngredientException("Cannot sell bacon due to missing ingredient.");
             }
@@ -96,7 +96,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellHam()
         {
-            if (toppingStock <= 0)
+            if (ham <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing ham.");
             }
@@ -106,7 +106,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellMustard()
         {
-            if (toppingStock <= 0)
+            if (mustard <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing mustard.");
             }
@@ -115,7 +115,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellBBQ()
         {
-            if (toppingStock <= 0)
+            if (BBQ <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing BBQ topping.");
             }
@@ -124,7 +124,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellCheese()
         {
-            if (toppingStock <= 0)
+            if (cheese <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing cheese topping.");
             }
@@ -133,7 +133,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellLettuce()
         {
-            if (toppingStock <= 0)
+            if (lettuce <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing lettuce topping.");
             }
@@ -142,7 +142,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellMayo()
         {
-            if (toppingStock <= 0)
+            if (mayo <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing mayo topping.");
             }
@@ -151,7 +151,7 @@ namespace SandwichDecoratorLibrary
 
         public void SellTomato()
         {
-            if (toppingStock <= 0)
+            if (tomato <= 0)
             {
                 throw new MissingIngredientException("Cannot sell the sandwich due to missing tomato topping.");
             }
