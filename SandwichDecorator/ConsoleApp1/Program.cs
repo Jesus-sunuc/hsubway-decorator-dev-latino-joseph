@@ -1,4 +1,5 @@
 ﻿using SandwichDecoratorLibrary;
+using System.Diagnostics;
 using System.Threading;
 
 public class Program
@@ -32,12 +33,6 @@ public class Program
 
             while (dayIsRunning)
             {
-                if (inventory.IsEmpty())
-                {
-                    Console.Clear();
-                    Console.WriteLine("SORRY, WE'RE OUT OF STOCK!");
-                    break;
-                }
 
                 Console.WriteLine("\n" + inventory.Report());
 
@@ -45,7 +40,23 @@ public class Program
 
                 Console.ReadKey(true);
 
-                Sandwichmaker(inventory, soldSandwiches);
+                Console.Clear();
+
+                Console.WriteLine("If you wish to generate a random sandwich press 'R', else, if you wish to create your own, press any other key...");
+
+                switch(Console.ReadKey(true).Key)
+                {
+
+                    case ConsoleKey.R:
+                    RandomSandwichmaker(inventory, soldSandwiches);
+                    break;
+
+                    default:
+                    Sandwichmaker(inventory, soldSandwiches);
+                    break;
+
+                }
+
 
                 Console.WriteLine("If you wish to make another sandwich, press the 'S' key, otherwise, if you're done for the day, press any other key...");
 
@@ -63,8 +74,10 @@ public class Program
 
                 foreach (string sandwich in soldSandwiches)
                 {
-                    completeReport += "\n" + $"{sandwich}";
+                    completeReport += "\n" + $"-{sandwich}";
                 }
+
+                completeReport += "\n" + "\n" + "Today we made a total of: " + $"${inventory.GetRevenue()}" + "\n";
 
                 dailyReports.Add(completeReport);
 
@@ -89,9 +102,9 @@ public class Program
         }
 
         Console.Clear();
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine($"| F I N A L   R E P O R T S |");
-            Console.WriteLine("-----------------------------");
+        Console.WriteLine("-----------------------------");
+        Console.WriteLine($"| F I N A L   R E P O R T S |");
+        Console.WriteLine("-----------------------------");
 
         Console.WriteLine("The reports for each day are:");
 
@@ -142,7 +155,11 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
                     newInventory.SellBLT(userBread);
                 }
 
-                catch (Exception ex) { Console.WriteLine(ex.Message); };
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.Message);
+                };
 
                 break;
 
@@ -173,8 +190,9 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
                 userSandwich = new ChickenSandwich(userBread); newInventory.SellChicken(userBread); break;
         }
 
-        Console.WriteLine($"You have ordered a {((ISandwich)userSandwich).GetDescription()}!");
-        Console.WriteLine($"Your current sandwich has a price of {((ISandwich)userSandwich).GetPrice()}!");
+        Console.WriteLine();
+        Console.WriteLine($"You have ordered a: {((ISandwich)userSandwich).GetDescription()}!");
+        Console.WriteLine($"Your current sandwich has a price of: ${((ISandwich)userSandwich).GetPrice()}");
 
 
         //USER SELECTS TOPPINGS
@@ -212,13 +230,14 @@ Else, press any other key to get your final sandwich description and price ...
 
         var Tuple = GetFinalPriceAndDescription(userSandwich);
         soldSasndwiches.Add(Tuple.Item2);
+        newInventory.AddRevenue(Tuple.Item1);
 
         Console.Clear();
-         Console.WriteLine("-------------------------------");
-            Console.WriteLine($"| F I N A L   S A N D W I C H |");
-            Console.WriteLine("-------------------------------");
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine($"| F I N A L   S A N D W I C H |");
+        Console.WriteLine("-------------------------------");
         Console.WriteLine($"You ordered a: {Tuple.Item2}");
-        Console.WriteLine($"Your sandwich's final price is: {Tuple.Item1}");
+        Console.WriteLine($"Your sandwich's final price is: ${Tuple.Item1}");
         Console.WriteLine();
 
     }
@@ -419,32 +438,217 @@ If you don't select one of these options, your sandwich will have Mayo
     {
         decimal finalPrice = 0;
         string finalDescription = "";
-
-        if (sandwich is ISandwich)
+        if (sandwich is ISandwich sandwichObj)
         {
-            finalPrice = ((ISandwich)sandwich).GetPrice();
-            finalDescription = ((ISandwich)sandwich).GetDescription() + finalDescription;
-            return (finalPrice, finalDescription);
+            finalPrice = sandwichObj.GetPrice();
+            finalDescription = sandwichObj.GetDescription();
+            Debug.WriteLine($"ISandwich: finalPrice={finalPrice}, finalDescription={finalDescription}");
         }
-        else
+        if (sandwich is ITopping toppingObj)
         {
-            if (((ITopping)sandwich).Sandwich != null)
+            if (toppingObj.Sandwich != null)
             {
-                var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Sandwich);
-                finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
-                finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
-                return (finalPrice, finalDescription);
-
+                var tuple = GetFinalPriceAndDescription(toppingObj.Sandwich);
+                finalPrice = tuple.Item1 + toppingObj.GetPrice();
+                finalDescription = tuple.Item2 + " " + toppingObj.GetDescription();
+                Debug.WriteLine($"ITopping Sandwich: finalPrice={finalPrice}, finalDescription={finalDescription}");
             }
-            else
+            else if (toppingObj.Topping != null)
             {
-                var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Topping);
-                finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
-                finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
-                return (finalPrice, finalDescription);
+                var tuple = GetFinalPriceAndDescription(toppingObj.Topping);
+                finalPrice = tuple.Item1 + toppingObj.GetPrice();
+                finalDescription = tuple.Item2 + " " + toppingObj.GetDescription();
+                Debug.WriteLine($"ITopping Topping: finalPrice={finalPrice}, finalDescription={finalDescription}");
             }
         }
+        return (finalPrice, finalDescription);
+    }
 
+    //METHOD TO MAKE A RANDOM SANDWICH EASILY
+
+    static void RandomSandwichmaker(Inventory newInventory, List<string> soldSasndwiches)
+    {
+        Random num = new Random();
+
+        Bread randomBread = new Bread();
+
+        switch (num.Next(0, 3))
+        {
+            case 0:
+                randomBread = Bread.white; break;
+
+            case 1:
+                randomBread = Bread.wheat; break;
+
+            case 2:
+                randomBread = Bread.rye; break;
+        }
+
+        Object randomSandwich = default;
+
+
+        switch (num.Next(0, 3))
+        {
+            case 0:
+                randomSandwich = new BLTSandwich(randomBread);
+                try
+                {
+                    newInventory.SellBLT(randomBread);
+                }
+
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.Message);
+                };
+
+                break;
+
+            case 1:
+                randomSandwich = new ChickenSandwich(randomBread);
+                try
+                {
+                    newInventory.SellChicken(randomBread);
+                }
+
+                catch (Exception ex) { Console.WriteLine(ex.Message); };
+                break;
+
+            case 2:
+                randomSandwich = new PBJSandwich(randomBread);
+                try
+                {
+                    newInventory.SellPBJ(randomBread);
+                }
+
+                catch (Exception ex) { Console.WriteLine(ex.Message); };
+                break;
+        }
+
+        int max = num.Next(0, 11);
+        for (int i = 0; i < max; i++)
+        {
+            switch (num.Next(0, 8))
+            {
+                case 0:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Bacon((ITopping)randomSandwich);
+                    newInventory.SellBacon();
+                }
+                else
+                {
+                    randomSandwich = new Bacon((ISandwich)randomSandwich);
+                    newInventory.SellBacon();
+                }
+                break;
+
+            case 1:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Ham((ITopping)randomSandwich);
+                    newInventory.SellHam();
+                }
+                else
+                {
+                    randomSandwich= new Ham((ISandwich)randomSandwich);
+                    newInventory.SellHam();
+                }
+                break;
+
+            case 2:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Cheese((ITopping)randomSandwich);
+                    newInventory.SellCheese();
+                }
+                else
+                {
+                    randomSandwich = new Cheese((ISandwich)randomSandwich);
+                    newInventory.SellCheese();
+                }
+                break;
+
+            case 3:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Tomato((ITopping)randomSandwich);
+                    newInventory.SellTomato();
+                }
+                else
+                {
+                    randomSandwich = new Tomato((ISandwich)randomSandwich);
+                    newInventory.SellTomato();
+                }
+                break;
+
+            case 4:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Lettuce((ITopping)randomSandwich);
+                    newInventory.SellLettuce();
+                }
+                else
+                {
+                    randomSandwich = new Lettuce((ISandwich)randomSandwich);
+                    newInventory.SellLettuce();
+                }
+                break;
+
+            case 5:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Mayo((ITopping)randomSandwich);
+                    newInventory.SellMayo();
+                }
+                else
+                {
+                    randomSandwich = new Mayo((ISandwich)randomSandwich);
+                    newInventory.SellMayo();
+                }
+                break;
+
+            case 6:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new BBQ((ITopping)randomSandwich);
+                    newInventory.SellBBQ();
+                }
+                else
+                {
+                    randomSandwich = new BBQ((ISandwich)randomSandwich);
+                    newInventory.SellBBQ();
+                }
+                break;
+            case 7:
+                if (randomSandwich is ITopping)
+                {
+                    randomSandwich = new Mustard((ITopping)randomSandwich);
+                    newInventory.SellMustard();
+                }
+                else
+                {
+                    randomSandwich = new Mustard((ISandwich)randomSandwich);
+                    newInventory.SellMustard();
+                }
+                break;
+            }
+
+        }
+
+        var Tuple = GetFinalPriceAndDescription(randomSandwich);
+        soldSasndwiches.Add(Tuple.Item2);
+        newInventory.AddRevenue(Tuple.Item1);
+
+        Console.Clear();
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine($"| F I N A L   S A N D W I C H |");
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine($"You ordered a: {Tuple.Item2}");
+        Console.WriteLine($"Your sandwich's final price is: ${Tuple.Item1}");
+        Console.WriteLine();
 
     }
+
+
 }
