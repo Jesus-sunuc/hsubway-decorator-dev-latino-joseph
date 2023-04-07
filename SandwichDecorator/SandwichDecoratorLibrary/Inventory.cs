@@ -10,8 +10,8 @@ namespace SandwichDecoratorLibrary
     public class Inventory
     {
         int sandwichStock = 10;
-        int breadStock = 3;
-        int toppingStock = 4000;
+        int breadStock = 50;
+        int toppingStock = 2;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
@@ -92,7 +92,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell bacon due to missing bacon.");
+                Console.WriteLine("Cannot sell bacon due to missing bacon.");
             }
             toppingStock--;
 
@@ -103,7 +103,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing ham.");
+                Console.WriteLine("Cannot sell bacon due to missing bacon.");
             }
 
             toppingStock--;
@@ -114,7 +114,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing mustard.");
+                Console.WriteLine("Cannot sell bacon due to missing mustard.");
             }
 
             toppingStock--;
@@ -125,7 +125,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing BBQ topping.");
+                Console.WriteLine("Cannot sell bacon due to missing BBQ.");
             }
 
             toppingStock--;
@@ -136,7 +136,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing cheese topping.");
+                Console.WriteLine("Cannot sell bacon due to missing cheese.");
             }
 
             toppingStock--;
@@ -147,7 +147,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing lettuce topping.");
+                Console.WriteLine("Cannot sell bacon due to missing lettuce.");
             }
 
             toppingStock--;
@@ -158,7 +158,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing mayo topping.");
+                Console.WriteLine("Cannot sell bacon due to missing mayo.");
             }
 
             toppingStock--;
@@ -169,7 +169,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing tomato topping.");
+                Console.WriteLine("Cannot sell bacon due to missing tomato.");
             }
 
             toppingStock--;
