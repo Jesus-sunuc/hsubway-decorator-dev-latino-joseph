@@ -1,4 +1,5 @@
 ﻿using SandwichDecoratorLibrary;
+using System.Diagnostics;
 using System.Threading;
 
 public class Program
@@ -423,32 +424,29 @@ If you don't select one of these options, your sandwich will have Mayo
     {
         decimal finalPrice = 0;
         string finalDescription = "";
-
-        if (sandwich is ISandwich)
+        if (sandwich is ISandwich sandwichObj)
         {
-            finalPrice = ((ISandwich)sandwich).GetPrice();
-            finalDescription = ((ISandwich)sandwich).GetDescription() + finalDescription;
-            return (finalPrice, finalDescription);
+            finalPrice = sandwichObj.GetPrice();
+            finalDescription = sandwichObj.GetDescription();
+            Debug.WriteLine($"ISandwich: finalPrice={finalPrice}, finalDescription={finalDescription}");
         }
-        else
+        if (sandwich is ITopping toppingObj)
         {
-            if (((ITopping)sandwich).Sandwich != null)
+            if (toppingObj.Sandwich != null)
             {
-                var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Sandwich);
-                finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
-                finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
-                return (finalPrice, finalDescription);
-
+                var tuple = GetFinalPriceAndDescription(toppingObj.Sandwich);
+                finalPrice = tuple.Item1 + toppingObj.GetPrice();
+                finalDescription = tuple.Item2 + " " + toppingObj.GetDescription();
+                Debug.WriteLine($"ITopping Sandwich: finalPrice={finalPrice}, finalDescription={finalDescription}");
             }
-            else
+            else if (toppingObj.Topping != null)
             {
-                var Tuple = GetFinalPriceAndDescription(((ITopping)sandwich).Topping);
-                finalPrice = Tuple.Item1 + ((ITopping)sandwich).GetPrice() + finalPrice;
-                finalDescription = Tuple.Item2 + ((ITopping)sandwich).GetDescription() + finalDescription;
-                return (finalPrice, finalDescription);
+                var tuple = GetFinalPriceAndDescription(toppingObj.Topping);
+                finalPrice = tuple.Item1 + toppingObj.GetPrice();
+                finalDescription = tuple.Item2 + " " + toppingObj.GetDescription();
+                Debug.WriteLine($"ITopping Topping: finalPrice={finalPrice}, finalDescription={finalDescription}");
             }
         }
-
-
+        return (finalPrice, finalDescription);
     }
 }

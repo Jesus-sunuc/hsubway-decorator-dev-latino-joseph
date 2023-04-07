@@ -291,7 +291,7 @@ namespace SandwichDecorator.StepDefinitions
             ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing ingredients.");
         }
 
-        /*[Then(@"the total daily sales should be \$(.*)")]
+        [Then(@"the total daily sales should be \$(.*)")]
         public void ThenTheTotalDailySalesShouldBe(Decimal p0)
         {
             //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
@@ -306,6 +306,6 @@ namespace SandwichDecorator.StepDefinitions
             {
                 GetFinalPriceAndDescription(sandwich).Item1.Should().BeApproximately(p0, 0.1m);
             }
-        }*/
+        }
     }
 }
