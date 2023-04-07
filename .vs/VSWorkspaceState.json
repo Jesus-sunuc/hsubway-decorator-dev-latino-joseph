@@ -8,6 +8,6 @@
     "\\SandwichDecorator\\SandwichDecoratorLibrary",
     "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions"
   ],
-  "SelectedNode": "\\SandwichDecorator\\SandwichDecoratorLibrary\\NoInventoryException.cs",
+  "SelectedNode": "\\SandwichDecorator\\SandwichDecorator\\StepDefinitions\\SandwichBreadStepDefinitions.cs",
   "PreviewInSolutionExplorer": false
 }
