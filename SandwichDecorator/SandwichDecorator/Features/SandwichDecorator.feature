@@ -132,6 +132,7 @@ Scenario: If on a day I sell three sandwiches
     And customer orders cheese
     And customer orders cheese
     Then the sandwich will cost $6.25
+
     When a chicken sandwich on rye bread is ordered
     And customer orders cheese
     And customer orders lettuce

@@ -254,7 +254,6 @@ namespace SandwichDecorator.StepDefinitions
         [Then(@"the sandwich will cost \$(.*)")]
         public void ThenTheSandwichWillCost(Decimal p0)
         {
-            //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
 
@@ -271,7 +270,6 @@ namespace SandwichDecorator.StepDefinitions
         [Then(@"the sandwich is described as ""([^""]*)""")]
         public void ThenTheSandwichIsDescribedAs(string p0)
         {
-            //_sc.Get<ISandwich>("sandwich").GetDescription().Should().Be(p0);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
             if (topping != null)
@@ -294,7 +292,6 @@ namespace SandwichDecorator.StepDefinitions
         [Then(@"the total daily sales should be \$(.*)")]
         public void ThenTheTotalDailySalesShouldBe(Decimal p0)
         {
-            //_sc.Get<ISandwich>("sandwich").GetPrice().Should().BeApproximately(p0, 0.1m);
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
 
