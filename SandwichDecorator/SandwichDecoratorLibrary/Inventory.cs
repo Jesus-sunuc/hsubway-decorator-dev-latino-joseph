@@ -10,7 +10,7 @@ namespace SandwichDecoratorLibrary
     public class Inventory
     {
         int sandwichStock = 10;
-        int breadStock = 50;
+        int breadStock = 5;
         int toppingStock = 4000;
 
         //Keeps track of how much money was made in the day
@@ -72,6 +72,7 @@ namespace SandwichDecoratorLibrary
             if (breadStock <= 0)
             {
                 Console.WriteLine("Cannot sell PBJ sandwich due to missing bread.");
+                throw new MissingIngredientException("Cannot sell PBJ sandwich due to missing bread.");
             }
 
             if (toppingStock <= 0)
@@ -92,6 +93,7 @@ namespace SandwichDecoratorLibrary
             if (breadStock <= 0)
             {;
                 Console.WriteLine("Cannot sell Chicken sandwich due to missing bread.");
+                throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");
             }
 
             if (toppingStock <= 0)
