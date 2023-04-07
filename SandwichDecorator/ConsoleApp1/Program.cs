@@ -504,7 +504,8 @@ If you don't select one of these options, your sandwich will have Mayo
             case 2:
                 
                     randomSandwich = new PBJSandwich(randomBread);
-                    newInventory.SellPBJ(randomBread);           
+                    newInventory.SellPBJ(randomBread);
+           
                 break;
         }
 
