@@ -13,6 +13,9 @@ namespace SandwichDecoratorLibrary
         int breadStock = 50;
         int toppingStock = 2;
 
+        //Keeps track of how much money was made in the day
+        decimal dailyRevenue = 0;
+
         int BLT;
         int PBJ;
         int Chicken;
@@ -189,6 +192,16 @@ namespace SandwichDecoratorLibrary
             lettuce = toppingStock;
             mayo = toppingStock;
             tomato = toppingStock;
+        }
+
+        public void AddRevenue(decimal money)
+        {
+            dailyRevenue += money;
+        }
+
+        public decimal GetRevenue()
+        {
+            return dailyRevenue;
         }
     }
 }
