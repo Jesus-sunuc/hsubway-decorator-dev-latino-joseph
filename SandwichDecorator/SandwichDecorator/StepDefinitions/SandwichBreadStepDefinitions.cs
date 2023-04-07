@@ -8,6 +8,12 @@ namespace SandwichDecorator.StepDefinitions
     [Binding]
     public class SandwichBreadStepDefinitions
     {
+        private void ResetSandwichAndTopping()
+        {
+            _sc.Set<ISandwich>(null, "sandwich");
+            _sc.Set<ITopping>(null, "topped");
+        }
+
         static (decimal, string) GetFinalPriceAndDescription(object sandwich)
         {
             decimal finalPrice = 0;
@@ -41,14 +47,16 @@ namespace SandwichDecorator.StepDefinitions
 
         private ScenarioContext _sc;
 
+        private decimal _dailySale;
         public SandwichBreadStepDefinitions(ScenarioContext scenario)
         {
             _sc = scenario;
             _sc.Add("topped", null);
             _sc.Add("inventory", new Inventory());
             _sc.Add("sandwich", null);
+            _dailySale = 0;
         }
-        
+
         [When(@"there is only (.*) slices of white bread")]
         public void WhenThereIsOnlySlicesOfWhiteBread(int p0)
         {
@@ -78,6 +86,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a BLT sandwich on wheat bread is ordered")]
         public void WhenABLTSandwichOnWheatBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             BLTSandwich sandwich = new BLTSandwich(Bread.wheat);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -85,6 +94,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a BLT sandwich on rye bread is ordered")]
         public void WhenABLTSandwichOnRyeBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             BLTSandwich sandwich = new BLTSandwich(Bread.rye);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -92,6 +102,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a PBJ sandwich on white bread is ordered")]
         public void WhenAPBJSandwichOnWhiteBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             PBJSandwich sandwich = new PBJSandwich(Bread.white);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -99,6 +110,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a PBJ sandwich on wheat bread is ordered")]
         public void WhenAPBJSandwichOnWheatBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             PBJSandwich sandwich = new PBJSandwich(Bread.wheat);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -106,6 +118,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a PBJ sandwich on rye bread is ordered")]
         public void WhenAPBJSandwichOnRyeBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             PBJSandwich sandwich = new PBJSandwich(Bread.rye);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -113,6 +126,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a chicken sandwich on white bread is ordered")]
         public void WhenAChickenSandwichOnWhiteBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             ChickenSandwich sandwich = new ChickenSandwich(Bread.white);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -120,6 +134,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a chicken sandwich on wheat bread is ordered")]
         public void WhenAChickenSandwichOnWheatBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             ChickenSandwich sandwich = new ChickenSandwich(Bread.wheat);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -127,6 +142,7 @@ namespace SandwichDecorator.StepDefinitions
         [When(@"a chicken sandwich on rye bread is ordered")]
         public void WhenAChickenSandwichOnRyeBreadIsOrdered()
         {
+            ResetSandwichAndTopping();
             ChickenSandwich sandwich = new ChickenSandwich(Bread.rye);
             _sc.Set<ISandwich>(sandwich, "sandwich");
         }
@@ -257,14 +273,18 @@ namespace SandwichDecorator.StepDefinitions
             ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
             ITopping topping = _sc.Get<ITopping>("topped");
 
+            decimal price;
             if (topping != null)
             {
-                GetFinalPriceAndDescription(topping).Item1.Should().BeApproximately(p0, 0.1m);
+                price = GetFinalPriceAndDescription(topping).Item1;
             }
             else
             {
-                GetFinalPriceAndDescription(sandwich).Item1.Should().BeApproximately(p0, 0.1m);
+                price = GetFinalPriceAndDescription(sandwich).Item1;
             }
+
+            price.Should().BeApproximately(p0, 0.1m);
+            _dailySale += price; // Add the sandwich price to the daily sale
         }
 
         [Then(@"the sandwich is described as ""([^""]*)""")]
@@ -289,20 +309,10 @@ namespace SandwichDecorator.StepDefinitions
             ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing of bread");
         }
 
-        [Then(@"the total daily sales should be \$(.*)")]
-        public void ThenTheTotalDailySalesShouldBe(Decimal p0)
+        [Then(@"the daily sale should be \$(.*)")]
+        public void ThenTheDailySaleShouldBe(Decimal p0)
         {
-            ISandwich sandwich = _sc.Get<ISandwich>("sandwich");
-            ITopping topping = _sc.Get<ITopping>("topped");
-
-            if (topping != null)
-            {
-                GetFinalPriceAndDescription(topping).Item1.Should().BeApproximately(p0, 0.1m);
-            }
-            else
-            {
-                GetFinalPriceAndDescription(sandwich).Item1.Should().BeApproximately(p0, 0.1m);
-            }
+            _dailySale.Should().BeApproximately(p0, 0.1m);
         }
     }
 }
