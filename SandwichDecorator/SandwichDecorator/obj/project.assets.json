@@ -6373,32 +6373,39 @@
     ]
   },
   "packageFolders": {
-    "/Users/carlosfelipeblancocastro/.nuget/packages/": {}
+    "C:\\Users\\Iota\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/carlosfelipeblancocastro/Desktop/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecorator/SandwichDecorator.csproj",
+      "projectUniqueName": "C:\\Users\\Iota\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecorator\\SandwichDecorator.csproj",
       "projectName": "SandwichDecorator",
-      "projectPath": "/Users/carlosfelipeblancocastro/Desktop/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecorator/SandwichDecorator.csproj",
-      "packagesPath": "/Users/carlosfelipeblancocastro/.nuget/packages/",
-      "outputPath": "/Users/carlosfelipeblancocastro/Desktop/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecorator/obj/",
+      "projectPath": "C:\\Users\\Iota\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecorator\\SandwichDecorator.csproj",
+      "packagesPath": "C:\\Users\\Iota\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Iota\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecorator\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/carlosfelipeblancocastro/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Iota\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/carlosfelipeblancocastro/Desktop/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecoratorLibrary/SandwichDecoratorLibrary.csproj": {
-              "projectPath": "/Users/carlosfelipeblancocastro/Desktop/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecoratorLibrary/SandwichDecoratorLibrary.csproj"
+            "C:\\Users\\Iota\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
+              "projectPath": "C:\\Users\\Iota\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj"
             }
           }
         }
@@ -6454,7 +6461,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

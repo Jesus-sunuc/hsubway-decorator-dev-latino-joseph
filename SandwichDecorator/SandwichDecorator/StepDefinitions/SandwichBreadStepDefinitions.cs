@@ -286,7 +286,7 @@ namespace SandwichDecorator.StepDefinitions
         public void ThenItWillThrowAError()
         {
             MissingIngredientException ex = _sc.Get<MissingIngredientException>("Exception");
-            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing ingredients.");
+            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing bread.");
         }
 
         [Then(@"the total daily sales should be \$(.*)")]
