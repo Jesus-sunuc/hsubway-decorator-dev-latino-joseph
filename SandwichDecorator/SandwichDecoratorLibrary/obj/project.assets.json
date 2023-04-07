@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Joseph.fitch\\.nuget\\packages\\": {},
+    "C:\\Users\\nathan.cabrera\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
       "projectName": "SandwichDecoratorLibrary",
-      "projectPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
-      "packagesPath": "C:\\Users\\Joseph.fitch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\obj\\",
+      "projectPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
+      "packagesPath": "C:\\Users\\nathan.cabrera\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Joseph.fitch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nathan.cabrera\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

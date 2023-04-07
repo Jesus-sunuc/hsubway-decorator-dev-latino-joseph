@@ -132,7 +132,7 @@ Scenario: If on a day I sell three sandwiches
     And customer orders cheese
     And customer orders cheese
     Then the sandwich will cost $6.25
-
+    And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese + cheese"
     When a chicken sandwich on rye bread is ordered
     And customer orders cheese
     And customer orders lettuce
@@ -141,6 +141,7 @@ Scenario: If on a day I sell three sandwiches
     And customer orders tomato
     And customer orders bacon
     Then the sandwich will cost $7.00
+    And the sandwich is described as "Chicken sandwich on rye bread + cheese + lettuce + lettuce + lettuce + tomato + bacon"
     When a BLT sandwich on rye bread is ordered
     And customer orders cheese
     And customer orders bacon
@@ -148,4 +149,5 @@ Scenario: If on a day I sell three sandwiches
     And customer orders bacon
     And customer orders bacon
     Then the sandwich will cost $8.75
-    
+    And the sandwich is described as "BLT sandwich on rye bread + cheese + bacon + bacon + bacon + bacon"
+    Then the daily sale should be $22
