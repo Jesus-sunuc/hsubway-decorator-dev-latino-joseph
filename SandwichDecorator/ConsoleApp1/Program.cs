@@ -77,10 +77,7 @@ public class Program
                     completeReport += "\n" + $"-{sandwich}";
                 }
 
-                completeReport += "\n" + "\n" + "Today we made a total of: " + $"${inventory.GetRevenue()}" + "\n";
-
                 dailyReports.Add(completeReport);
-
 
                 Console.WriteLine($"Press any key to go to day {dailyReports.Count + 1}, else, if you wish to exit, press 'E' ");
 

@@ -16,6 +16,25 @@ namespace SandwichDecoratorLibrary
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
 
+        //Keeps track of how much was spent on ingredients
+        // Costs:
+        // Bacon $0.33
+        // Ham   $0.28
+        // Cheese $.40
+        // Tomato $0.20
+        // Lettuce $0.20
+        // BBQ Sauce  $0.02
+        // Mayo Sauce $0.04
+        // Mustard    $0.01
+        // WhiteBread  0.33/slice
+        // WheatBread  0.38/slice
+        // RyeBread    0.68/slice
+        // PBJingredient  $0.78
+        // BLTingredient  $1.25
+        // SChickeningredient $1.75
+
+        decimal Expenses = 0;
+
         int BLT;
         int PBJ;
         int Chicken;
@@ -31,7 +50,7 @@ namespace SandwichDecoratorLibrary
         int mustard;
         int tomato;
 
-        public Inventory() 
+        public Inventory()
         {
             ResetStock();
         }
@@ -62,9 +81,10 @@ namespace SandwichDecoratorLibrary
             sandwichStock--;
 
             BLT++;
-            if (bread == Bread.rye) { rye += 2; }
-            else if (bread == Bread.wheat) { wheat += 2; }
-            else { white += 2; }
+            Expenses += 1.25m;
+            if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
+            else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
+            else { white += 2; Expenses += 0.33m * 2; }
         }
 
         public void SellPBJ(Bread bread)
@@ -84,14 +104,16 @@ namespace SandwichDecoratorLibrary
             sandwichStock--;
 
             PBJ++;
-            if (bread == Bread.rye) { rye += 2; }
-            else if (bread == Bread.wheat) { wheat += 2; }
-            else { white += 2; }
+            Expenses += 0.78m;
+            if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
+            else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
+            else { white += 2; Expenses += 0.33m * 2; }
         }
         public void SellChicken(Bread bread)
         {
             if (breadStock <= 0)
-            {;
+            {
+                ;
                 Console.WriteLine("Cannot sell Chicken sandwich due to missing bread.");
                 throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");
             }
@@ -103,10 +125,12 @@ namespace SandwichDecoratorLibrary
 
             breadStock = breadStock - 2;
             sandwichStock--;
+
             Chicken++;
-            if (bread == Bread.rye) { rye += 2; }
-            else if (bread == Bread.wheat) { wheat += 2; }
-            else { white += 2; }
+            Expenses += 1.75m;
+            if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
+            else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
+            else { white += 2; Expenses += 0.33m * 2; }
         }
         public void SellBacon()
         {
@@ -115,8 +139,8 @@ namespace SandwichDecoratorLibrary
                 Console.WriteLine("Cannot sell bacon due to missing bacon.");
             }
             toppingStock--;
-
             bacon++;
+            Expenses += 0.33m;
         }
 
         public void SellHam()
@@ -128,6 +152,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             ham++;
+            Expenses += 0.28m;
         }
 
         public void SellMustard()
@@ -139,6 +164,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             mustard++;
+            Expenses += 0.01m;
         }
 
         public void SellBBQ()
@@ -150,6 +176,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             BBQ++;
+            Expenses += 0.02m;
         }
 
         public void SellCheese()
@@ -161,6 +188,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             cheese++;
+            Expenses += 0.40m;
         }
 
         public void SellLettuce()
@@ -172,6 +200,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             lettuce++;
+            Expenses += 0.20m;
         }
 
         public void SellMayo()
@@ -183,6 +212,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             mayo++;
+            Expenses += 0.04m;
         }
 
         public void SellTomato()
@@ -194,6 +224,7 @@ namespace SandwichDecoratorLibrary
 
             toppingStock--;
             tomato++;
+            Expenses += 0.20m;
         }
 
         public string Report()
@@ -212,8 +243,11 @@ namespace SandwichDecoratorLibrary
                 $"Cheese topping: {cheese}\n" +
                 $"Lettuce topping: {lettuce}\n" +
                 $"Mayo topping: {mayo}\n" +
-                $"Tomato topping: {tomato}" +
-                $"{breadStock}";
+                $"Tomato topping: {tomato}\n" +
+
+                $"\nRevenue obtained: ${dailyRevenue}\n" +
+                $"Money spent on ingredients: ${Expenses}\n" +
+                $"Total profit: ${GetProfit()}";
         }
         public void ResetStock()
         {
@@ -241,6 +275,17 @@ namespace SandwichDecoratorLibrary
         public decimal GetRevenue()
         {
             return dailyRevenue;
+        }
+        public decimal GetExpenses()
+        {
+            return Expenses;
+        }
+
+        //Metod to return profit made during the day
+
+        public decimal GetProfit()
+        {
+            return dailyRevenue - Expenses;
         }
     }
 }
