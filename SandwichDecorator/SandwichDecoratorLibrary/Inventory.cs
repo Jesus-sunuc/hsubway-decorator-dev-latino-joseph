@@ -9,9 +9,9 @@ namespace SandwichDecoratorLibrary
 {
     public class Inventory
     {
-        int sandwichStock = 10;
-        int breadStock = 5;
-        int toppingStock = 4000;
+        int sandwichStock = 1;
+        int breadStock = 10000;
+        int toppingStock = 409000;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
@@ -67,14 +67,14 @@ namespace SandwichDecoratorLibrary
 
         public void SellBLT(Bread bread)
         {
-            if (breadStock <= 0)
+            if (breadStock <= 1)
             {
                 Console.WriteLine("Cannot sell BLT sandwich due to missing of bread");
-                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");
+                /*throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");*/
             }
-            if (toppingStock <= 0)
+            else if (sandwichStock <= 1)
             {
-                Console.WriteLine("Cannot sell BLT sandwich");
+                Console.WriteLine("Sorry, we cannot sell more BLT sandwich");
             }
 
             breadStock = breadStock - 2;
@@ -85,19 +85,21 @@ namespace SandwichDecoratorLibrary
             if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
             else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
             else { white += 2; Expenses += 0.33m * 2; }
+        Thread.Sleep(10000);
+
         }
 
         public void SellPBJ(Bread bread)
         {
-            if (breadStock <= 0)
+            if (breadStock <= 1)
             {
                 Console.WriteLine("Cannot sell PBJ sandwich due to missing bread.");
-                throw new MissingIngredientException("Cannot sell PBJ sandwich due to missing bread.");
+                /*throw new MissingIngredientException("Cannot sell PBJ sandwich due to missing bread.");*/
             }
 
-            if (toppingStock <= 0)
+            else if (sandwichStock <= 1)
             {
-                Console.WriteLine("Cannot sell PBJ sandwich");
+                Console.WriteLine("Sorry, we cannot sell more PBJ sandwich");
             }
 
             breadStock = breadStock - 2;
@@ -108,19 +110,20 @@ namespace SandwichDecoratorLibrary
             if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
             else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
             else { white += 2; Expenses += 0.33m * 2; }
+            Thread.Sleep(10000);
+
         }
         public void SellChicken(Bread bread)
         {
-            if (breadStock <= 0)
+            if (breadStock <= 1)
             {
-                ;
                 Console.WriteLine("Cannot sell Chicken sandwich due to missing bread.");
-                throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");
+                /*throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");*/
             }
 
-            if (toppingStock <= 0)
+            else if (sandwichStock <= 1)
             {
-                Console.WriteLine("Cannot sell Chicken sandwich");
+                Console.WriteLine("Sorry, we cannot sell more Chicken sandwich");
             }
 
             breadStock = breadStock - 2;
@@ -131,6 +134,7 @@ namespace SandwichDecoratorLibrary
             if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
             else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
             else { white += 2; Expenses += 0.33m * 2; }
+        Thread.Sleep(10000);
         }
         public void SellBacon()
         {
