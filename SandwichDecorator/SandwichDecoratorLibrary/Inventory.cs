@@ -11,7 +11,7 @@ namespace SandwichDecoratorLibrary
     {
         int sandwichStock = 1;
         int breadStock = 10000;
-        int toppingStock = 409000;
+        int toppingStock = 4000;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
@@ -85,7 +85,7 @@ namespace SandwichDecoratorLibrary
             if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
             else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
             else { white += 2; Expenses += 0.33m * 2; }
-        Thread.Sleep(10000);
+     /*   Thread.Sleep(10000);*/
 
         }
 
@@ -110,7 +110,7 @@ namespace SandwichDecoratorLibrary
             if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
             else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
             else { white += 2; Expenses += 0.33m * 2; }
-            Thread.Sleep(10000);
+           /* Thread.Sleep(10000);*/
 
         }
         public void SellChicken(Bread bread)
@@ -134,7 +134,7 @@ namespace SandwichDecoratorLibrary
             if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
             else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
             else { white += 2; Expenses += 0.33m * 2; }
-        Thread.Sleep(10000);
+    /*    Thread.Sleep(10000);*/
         }
         public void SellBacon()
         {

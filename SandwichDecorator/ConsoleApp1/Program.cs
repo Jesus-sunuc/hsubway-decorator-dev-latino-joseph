@@ -146,42 +146,18 @@ If you don't select one of these options, your sandwich will be a Chicken Sandwi
         {
             case ConsoleKey.D1:
                 userSandwich = new BLTSandwich(userBread);
-                try
-                {
-
-                    newInventory.SellBLT(userBread);
-                }
-
-                catch (Exception ex)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(ex.Message);
-                };
-
-                break;
+                newInventory.SellBLT(userBread);
+            break;
 
             case ConsoleKey.D2:
                 userSandwich = new ChickenSandwich(userBread);
-                try
-                {
-
-                    newInventory.SellChicken(userBread);
-                }
-
-                catch (Exception ex) { Console.WriteLine(ex.Message); };
-                break;
+                newInventory.SellChicken(userBread);
+            break;
 
             case ConsoleKey.D3:
                 userSandwich = new PBJSandwich(userBread);
-                try
-                {
-
-                    newInventory.SellPBJ(userBread);
-                }
-
-                catch (Exception ex) { Console.WriteLine(ex.Message); };
-
-                break;
+                newInventory.SellPBJ(userBread);
+            break;
 
             default:
                 userSandwich = new ChickenSandwich(userBread); newInventory.SellChicken(userBread); break;
