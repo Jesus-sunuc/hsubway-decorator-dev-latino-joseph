@@ -9,17 +9,36 @@ namespace SandwichDecoratorLibrary
 {
     public class Inventory
     {
-        int sandwichStock = 10;
-        int breadStock = 50;
-        int toppingStock = 2;
+        public int sandwichStock = 50;
+        public int breadStock = 4;
+        public int toppingStock = 4;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
 
+        //Keeps track of how much was spent on ingredients
+        // Costs:
+        // Bacon $0.33
+        // Ham   $0.28
+        // Cheese $.40
+        // Tomato $0.20
+        // Lettuce $0.20
+        // BBQ Sauce  $0.02
+        // Mayo Sauce $0.04
+        // Mustard    $0.01
+        // WhiteBread  0.33/slice
+        // WheatBread  0.38/slice
+        // RyeBread    0.68/slice
+        // PBJingredient  $0.78
+        // BLTingredient  $1.25
+        // SChickeningredient $1.75
+
+        decimal Expenses = 0;
+
         int BLT;
         int PBJ;
         int Chicken;
-        public int white;
+        int white;
         int wheat;
         int rye;
         int bacon;
@@ -31,14 +50,14 @@ namespace SandwichDecoratorLibrary
         int mustard;
         int tomato;
 
-        public Inventory() 
+        public Inventory()
         {
             ResetStock();
         }
 
         public bool IsEmpty()
         {
-            if (sandwichStock == 0 || breadStock == 0 || toppingStock == 0)
+            if (sandwichStock <= 0 || breadStock <= 1 || toppingStock <= 0)
             {
                 return true;
             }
@@ -48,150 +67,206 @@ namespace SandwichDecoratorLibrary
 
         public void SellBLT(Bread bread)
         {
-            if (BLT <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || sandwichStock <= 0)
+            if (breadStock <= 1)
             {
-                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing of bread");
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing bread.");
+            }
+            else if (sandwichStock <= 1)
+            {
+                throw new MissingIngredientException("Sorry, we cannot sell more BLT sandwich");
             }
 
-            BLT--;
-            if (bread == Bread.rye) { rye = rye - 2; }
-            else if (bread == Bread.wheat) { wheat = wheat - 2; }
-            else { white = white - 2; }
+            breadStock = breadStock - 2;
+            sandwichStock--;
+
+            BLT++;
+            Expenses += 1.25m;
+            if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
+            else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
+            else { white += 2; Expenses += 0.33m * 2; }
         }
 
         public void SellPBJ(Bread bread)
         {
-            if (PBJ <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || sandwichStock <= 0)
+            if (breadStock <= 1)
             {
-                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing bread.");
+                throw new MissingIngredientException("Cannot sell PBJ sandwich due to missing bread.");
             }
 
-            PBJ--;
-            if (bread == Bread.rye) { rye = rye - 2; }
-            else if (bread == Bread.wheat) { wheat = wheat - 2; }
-            else { white = white - 2; }
+            else if (sandwichStock <= 1)
+            {
+                throw new MissingIngredientException("Sorry, we cannot sell more PBJ sandwich");
+            }
+
+            breadStock = breadStock - 2;
+            sandwichStock--;
+
+            PBJ++;
+            Expenses += 0.78m;
+            if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
+            else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
+            else { white += 2; Expenses += 0.33m * 2; }
         }
         public void SellChicken(Bread bread)
         {
-            if (Chicken <= 0 || (bread == Bread.rye && rye < 2) || (bread == Bread.wheat && wheat < 2) || (bread == Bread.white && white < 2) || breadStock <= 0 || sandwichStock <= 0)
+            if (breadStock <= 1)
             {
-                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing bread.");
+                throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");
             }
 
-            Chicken--;
-            if (bread == Bread.rye) { rye = rye - 2; }
-            else if (bread == Bread.wheat) { wheat = wheat - 2; }
-            else { white = white - 2; }
+            else if (sandwichStock <= 1)
+            {
+                throw new MissingIngredientException("Sorry, we cannot sell more Chicken sandwich");
+            }
+
+            breadStock = breadStock - 2;
+            sandwichStock--;
+
+            Chicken++;
+            Expenses += 1.75m;
+            if (bread == Bread.rye) { rye += 2; Expenses += 0.68m * 2; }
+            else if (bread == Bread.wheat) { wheat += 2; Expenses += 0.38m * 2; }
+            else { white += 2; Expenses += 0.33m * 2; }
         }
         public void SellBacon()
         {
-            if (bacon <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell bacon due to missing ingredient.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing bacon.");
             }
-
-            bacon--;
-
+            toppingStock--;
+            bacon++;
+            Expenses += 0.33m;
         }
 
         public void SellHam()
         {
-            if (ham <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing ham.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing ham.");
             }
-            ham--;
 
+            toppingStock--;
+            ham++;
+            Expenses += 0.28m;
         }
 
         public void SellMustard()
         {
-            if (mustard <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing mustard.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing mustard.");
             }
-            mustard--;
+
+            toppingStock--;
+            mustard++;
+            Expenses += 0.01m;
         }
 
         public void SellBBQ()
         {
-            if (BBQ <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing BBQ topping.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing BBQ");
             }
-            BBQ--;
+
+            toppingStock--;
+            BBQ++;
+            Expenses += 0.02m;
         }
 
         public void SellCheese()
         {
-            if (cheese <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing cheese topping.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing cheese.");
             }
-            cheese--;
+
+            toppingStock--;
+            cheese++;
+            Expenses += 0.40m;
         }
 
         public void SellLettuce()
         {
-            if (lettuce <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing lettuce topping.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing lettuce.");
             }
-            lettuce--;
+
+            toppingStock--;
+            lettuce++;
+            Expenses += 0.20m;
         }
 
         public void SellMayo()
         {
-            if (mayo <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing mayo topping.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing mayo.");
             }
-            mayo--;
+
+            toppingStock--;
+            mayo++;
+            Expenses += 0.04m;
         }
 
         public void SellTomato()
         {
-            if (tomato <= 0)
+            if (toppingStock <= 0)
             {
-                throw new MissingIngredientException("Cannot sell the sandwich due to missing tomato topping.");
+                throw new MissingIngredientException("Cannot sell sandwich due to missing tomato.");
             }
-            tomato--;
+
+            toppingStock--;
+            tomato++;
+            Expenses += 0.20m;
         }
 
         public string Report()
         {
             return $"Sales made \n" +
-                $"BLT sandwiches: {sandwichStock - BLT}\n" +
-                $"PBJ sandwiches: {sandwichStock - PBJ}\n" +
-                $"Chicken sandwiches: {sandwichStock - Chicken}\n" +
-                $"White bread: {breadStock - white}\n" +
-                $"Wheat bread: {breadStock - wheat}\n" +
-                $"Rye bread: {breadStock - rye} \n" +
-                $"Bacon topping: {toppingStock - bacon}\n" +
-                $"Ham topping: {toppingStock - ham}\n" +
-                $"Mustard topping: {toppingStock - mustard}\n" +
-                $"BBQ topping: {toppingStock - BBQ}\n" +
-                $"Cheese topping: {toppingStock - cheese}\n" +
-                $"Lettuce topping: {toppingStock - lettuce}\n" +
-                $"Mayo topping: {toppingStock - mayo}\n" +
-                $"Tomato topping: {toppingStock- tomato}";
+                $"BLT sandwiches: {BLT}\n" +
+                $"PBJ sandwiches: {PBJ}\n" +
+                $"Chicken sandwiches: {Chicken}\n" +
+                $"White bread: {white}\n" +
+                $"Wheat bread: {wheat}\n" +
+                $"Rye bread: {rye} \n" +
+                $"Bacon topping: {bacon}\n" +
+                $"Ham topping: {ham}\n" +
+                $"Mustard topping: {mustard}\n" +
+                $"BBQ topping: {BBQ}\n" +
+                $"Cheese topping: {cheese}\n" +
+                $"Lettuce topping: {lettuce}\n" +
+                $"Mayo topping: {mayo}\n" +
+                $"Tomato topping: {tomato}\n" +
+
+                $"\nBread Stock left: {breadStock}\n" +
+                $"Topping Stock left: {toppingStock}\n" +
+                $"Sandwich Stock left: {sandwichStock}\n" +
+
+                $"\nRevenue obtained: ${dailyRevenue}\n" +
+                $"Money spent on ingredients: ${Expenses}\n" +
+                $"Total profit: ${GetProfit()}";
+
+                
         }
         public void ResetStock()
         {
-            BLT = sandwichStock;
-            PBJ = sandwichStock;
-            Chicken = sandwichStock;
-            white = breadStock;
-            wheat = breadStock;
-            rye = breadStock;
-            bacon = toppingStock;
-            ham = toppingStock;
-            mustard = toppingStock;
-            BBQ = toppingStock;
-            cheese = toppingStock;
-            lettuce = toppingStock;
-            mayo = toppingStock;
-            tomato = toppingStock;
+            BLT = 0;
+            PBJ = 0;
+            Chicken = 0;
+            white = 0;
+            wheat = 0;
+            rye = 0;
+            bacon = 0;
+            ham = 0;
+            mustard = 0;
+            BBQ = 0;
+            cheese = 0;
+            lettuce = 0;
+            mayo = 0;
+            tomato = 0;
         }
 
         public void AddRevenue(decimal money)
@@ -202,6 +277,17 @@ namespace SandwichDecoratorLibrary
         public decimal GetRevenue()
         {
             return dailyRevenue;
+        }
+        public void GetExpenses(decimal money)
+        {
+            Expenses += money;
+        }
+
+        //Metod to return profit made during the day
+
+        public decimal GetProfit()
+        {
+            return dailyRevenue - Expenses;
         }
     }
 }

@@ -1,4 +1,5 @@
 using FluentAssertions;
+using NUnit.Framework;
 using SandwichDecoratorLibrary;
 using System;
 using TechTalk.SpecFlow;
@@ -61,7 +62,15 @@ namespace SandwichDecorator.StepDefinitions
         public void WhenThereIsOnlySlicesOfWhiteBread(int p0)
         {
             Inventory inventory = _sc.Get<Inventory>("inventory");
-            inventory.white = 3;
+            inventory.breadStock = 3;
+            _sc.Set<Inventory>(inventory, "inventory");
+        }
+
+        [When(@"there is only (.*) slice of white bread")]
+        public void WhenThereIsOnlySliceOfWhiteBread(int p0)
+        {
+            Inventory inventory = _sc.Get<Inventory>("inventory");
+            inventory.breadStock = 1;
             _sc.Set<Inventory>(inventory, "inventory");
         }
 
@@ -306,13 +315,44 @@ namespace SandwichDecorator.StepDefinitions
         public void ThenItWillThrowAError()
         {
             MissingIngredientException ex = _sc.Get<MissingIngredientException>("Exception");
-            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing of bread");
+            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing bread.");
         }
 
         [Then(@"the daily sale should be \$(.*)")]
         public void ThenTheDailySaleShouldBe(Decimal p0)
         {
             _dailySale.Should().BeApproximately(p0, 0.1m);
+        }
+
+        private decimal revenue;
+        private decimal expenses;
+        private decimal profit;
+        private Inventory shop = new Inventory();
+
+        [Given(@"the sandwich shop made \$(.*) in revenue")]
+        public void GivenTheSandwichShopMadeInRevenue(decimal amount)
+        {
+            revenue = amount;
+            shop.AddRevenue(amount);
+        }
+
+        [Given(@"spent \$(.*) on ingredients")]
+        public void GivenSpentOnIngredients(decimal amount)
+        {
+            expenses = amount;
+            shop.GetExpenses(amount);
+        }
+
+        [When(@"the owner calculates the profit")]
+        public void WhenTheOwnerCalculatesTheProfit()
+        {
+            profit = shop.GetProfit();
+        }
+
+        [Then(@"the profit should be \$(.*)")]
+        public void ThenTheProfitShouldBe(decimal expectedProfit)
+        {
+            Assert.AreEqual(expectedProfit, profit);
         }
     }
 }

@@ -125,6 +125,11 @@ Scenario: When there are only 3 bread, only one sandwich can be sold, and the se
     When a BLT sandwich on white bread is ordered
     Then It will throw a MissingIngredientException error
 
+Scenario: When there are only 1 bread, no sandwich can be made.
+    When there is only 1 slice of white bread
+    And a BLT sandwich on white bread is ordered
+    Then It will throw a MissingIngredientException error
+
 @Test_7
 Scenario: If on a day I sell three sandwiches 
     When a chicken sandwich on white bread is ordered
@@ -151,3 +156,70 @@ Scenario: If on a day I sell three sandwiches
     Then the sandwich will cost $8.75
     And the sandwich is described as "BLT sandwich on rye bread + cheese + bacon + bacon + bacon + bacon"
     Then the daily sale should be $22
+
+@Profit
+Scenario: Calculate daily profit for a sandwich shop
+    Given the sandwich shop made $100 in revenue
+    And spent $50 on ingredients
+    When the owner calculates the profit
+    Then the profit should be $50
+
+Scenario: Calculate daily profit
+    Given the sandwich shop made $0 in revenue
+    And spent $0 on ingredients
+    When the owner calculates the profit
+    Then the profit should be $0
+
+@TestDailySales
+Scenario: If on a day I sell two sandwiches 
+    When a chicken sandwich on white bread is ordered
+    And customer orders cheese
+    And customer orders cheese
+    Then the sandwich will cost $5.50
+    And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese"
+    When a chicken sandwich on rye bread is ordered
+    And customer orders cheese
+    And customer orders lettuce
+    And customer orders tomato
+    And customer orders bacon
+    Then the sandwich will cost $6.50
+    And the sandwich is described as "Chicken sandwich on rye bread + cheese + lettuce + tomato + bacon"
+    Then the daily sale should be $12
+
+@TestDailySales2
+Scenario: If on a day I sell four sandwiches 
+    When a chicken sandwich on white bread is ordered
+    And customer orders cheese
+    And customer orders cheese
+    Then the sandwich will cost $5.50
+    And the sandwich is described as "Chicken sandwich on white bread + cheese + cheese"
+    When a chicken sandwich on rye bread is ordered
+    And customer orders cheese
+    And customer orders lettuce
+    And customer orders tomato
+    And customer orders bacon
+    Then the sandwich will cost $6.50
+    And the sandwich is described as "Chicken sandwich on rye bread + cheese + lettuce + tomato + bacon"
+    When a chicken sandwich on white bread is ordered
+    And customer orders tomato
+    And customer orders BBQ
+    And customer orders mayo
+    Then the sandwich will cost $4.25
+    And the sandwich is described as "Chicken sandwich on white bread + tomato + BBQ + mayo"
+    When a PBJ sandwich on wheat bread is ordered
+    Then the sandwich will cost $3.00
+    And the sandwich is described as "PBJ sandwich on wheat bread"
+    Then the daily sale should be $19.25
+
+@TestDailySales3
+Scenario: If on a day I sell three sandwiches with no toppings
+    When a BLT sandwich on white bread is ordered
+    Then the sandwich will cost $4.50
+    And the sandwich is described as "BLT sandwich on white bread"
+    When a PBJ sandwich on white bread is ordered
+    Then the sandwich will cost $2.75
+    And the sandwich is described as "PBJ sandwich on white bread"
+    When a chicken sandwich on wheat bread is ordered
+    Then the sandwich will cost $4.25
+    And the sandwich is described as "Chicken sandwich on wheat bread"
+    Then the daily sale should be $11.50
