@@ -154,3 +154,15 @@ C:\Users\Jesus\Desktop\Sandwich\SandwichDecorator\SandwichDecoratorLibrary\obj\D
 C:\Users\Jesus\Desktop\Sandwich\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\refint\SandwichDecoratorLibrary.dll
 C:\Users\Jesus\Desktop\Sandwich\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.pdb
 C:\Users\Jesus\Desktop\Sandwich\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\ref\SandwichDecoratorLibrary.dll
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.deps.json
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.dll
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.pdb
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.csproj.AssemblyReference.cache
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.AssemblyInfoInputs.cache
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.AssemblyInfo.cs
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.csproj.CoreCompileInputs.cache
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.dll
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\refint\SandwichDecoratorLibrary.dll
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.pdb
+C:\Users\natha\Source\Repos\hsubway-decorator-dev-latino-joseph16\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\ref\SandwichDecoratorLibrary.dll

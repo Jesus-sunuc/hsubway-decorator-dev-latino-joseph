@@ -6373,19 +6373,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jesus\\.nuget\\packages\\": {}
+    "C:\\Users\\natha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jesus\\Desktop\\Sandwich\\SandwichDecorator\\SandwichDecorator\\SandwichDecorator.csproj",
+      "projectUniqueName": "C:\\Users\\natha\\Source\\Repos\\hsubway-decorator-dev-latino-joseph16\\SandwichDecorator\\SandwichDecorator\\SandwichDecorator.csproj",
       "projectName": "SandwichDecorator",
-      "projectPath": "C:\\Users\\Jesus\\Desktop\\Sandwich\\SandwichDecorator\\SandwichDecorator\\SandwichDecorator.csproj",
-      "packagesPath": "C:\\Users\\Jesus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jesus\\Desktop\\Sandwich\\SandwichDecorator\\SandwichDecorator\\obj\\",
+      "projectPath": "C:\\Users\\natha\\Source\\Repos\\hsubway-decorator-dev-latino-joseph16\\SandwichDecorator\\SandwichDecorator\\SandwichDecorator.csproj",
+      "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\natha\\Source\\Repos\\hsubway-decorator-dev-latino-joseph16\\SandwichDecorator\\SandwichDecorator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6399,8 +6399,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Jesus\\Desktop\\Sandwich\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
-              "projectPath": "C:\\Users\\Jesus\\Desktop\\Sandwich\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj"
+            "C:\\Users\\natha\\Source\\Repos\\hsubway-decorator-dev-latino-joseph16\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
+              "projectPath": "C:\\Users\\natha\\Source\\Repos\\hsubway-decorator-dev-latino-joseph16\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj"
             }
           }
         }
@@ -6456,7 +6456,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
