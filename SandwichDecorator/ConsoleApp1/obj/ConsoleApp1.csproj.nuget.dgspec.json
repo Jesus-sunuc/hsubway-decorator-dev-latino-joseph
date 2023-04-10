@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj",
-        "packagesPath": "C:\\Users\\nathan.cabrera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\ConsoleApp1\\obj\\",
+        "projectPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\Joseph.fitch\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nathan.cabrera\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joseph.fitch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
-                "projectPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj"
+              "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
+                "projectPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj"
               }
             }
           }
@@ -64,24 +64,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
+    "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
         "projectName": "SandwichDecoratorLibrary",
-        "projectPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
-        "packagesPath": "C:\\Users\\nathan.cabrera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nathan.cabrera\\Source\\Repos\\hsubway-decorator-dev-latino-joseph4\\SandwichDecorator\\SandwichDecoratorLibrary\\obj\\",
+        "projectPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\SandwichDecoratorLibrary.csproj",
+        "packagesPath": "C:\\Users\\Joseph.fitch\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joseph.fitch\\Source\\Repos\\SnowSE\\hsubway-decorator-dev-latino-joseph\\SandwichDecorator\\SandwichDecoratorLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nathan.cabrera\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joseph.fitch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -124,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
