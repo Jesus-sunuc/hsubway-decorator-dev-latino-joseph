@@ -130,3 +130,15 @@ C:/Users/Jesus/Source/Repos/hsubway-decorator-dev-latino-joseph/SandwichDecorato
 C:/Users/Jesus/Source/Repos/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecoratorLibrary/obj/Debug/net6.0/refint/SandwichDecoratorLibrary.dll
 C:/Users/Jesus/Source/Repos/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecoratorLibrary/obj/Debug/net6.0/SandwichDecoratorLibrary.pdb
 C:/Users/Jesus/Source/Repos/hsubway-decorator-dev-latino-joseph/SandwichDecorator/SandwichDecoratorLibrary/obj/Debug/net6.0/ref/SandwichDecoratorLibrary.dll
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.deps.json
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.dll
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\bin\Debug\net6.0\SandwichDecoratorLibrary.pdb
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.csproj.AssemblyReference.cache
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.AssemblyInfoInputs.cache
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.AssemblyInfo.cs
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.csproj.CoreCompileInputs.cache
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.dll
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\refint\SandwichDecoratorLibrary.dll
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\SandwichDecoratorLibrary.pdb
+C:\Users\carlos.blancocastro\Source\Repos\hsubway-decorator-dev-latino-joseph\SandwichDecorator\SandwichDecoratorLibrary\obj\Debug\net6.0\ref\SandwichDecoratorLibrary.dll

@@ -9,9 +9,9 @@ namespace SandwichDecoratorLibrary
 {
     public class Inventory
     {
-        int sandwichStock = 50;
-        int breadStock = 4;
-        int toppingStock = 4;
+        public int sandwichStock = 50;
+        public int breadStock = 4;
+        public int toppingStock = 4;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
@@ -38,7 +38,7 @@ namespace SandwichDecoratorLibrary
         int BLT;
         int PBJ;
         int Chicken;
-        public int white;
+        int white;
         int wheat;
         int rye;
         int bacon;
@@ -69,14 +69,11 @@ namespace SandwichDecoratorLibrary
         {
             if (breadStock <= 1)
             {
-                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing Bread.");
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing bread.");
             }
             else if (sandwichStock <= 1)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Sorry, we cannot sell more BLT sandwich");
-                Thread.Sleep(3000);
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Sorry, we cannot sell more BLT sandwich");
             }
 
             breadStock = breadStock - 2;

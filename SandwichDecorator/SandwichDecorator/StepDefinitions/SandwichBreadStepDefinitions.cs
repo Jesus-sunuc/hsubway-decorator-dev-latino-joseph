@@ -61,7 +61,7 @@ namespace SandwichDecorator.StepDefinitions
         public void WhenThereIsOnlySlicesOfWhiteBread(int p0)
         {
             Inventory inventory = _sc.Get<Inventory>("inventory");
-            inventory.white = 3;
+            inventory.breadStock = 3;
             _sc.Set<Inventory>(inventory, "inventory");
         }
 
@@ -306,7 +306,7 @@ namespace SandwichDecorator.StepDefinitions
         public void ThenItWillThrowAError()
         {
             MissingIngredientException ex = _sc.Get<MissingIngredientException>("Exception");
-            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing of bread");
+            ex.Message.Should().Be($"Cannot sell BLT sandwich due to missing bread.");
         }
 
         [Then(@"the daily sale should be \$(.*)")]
