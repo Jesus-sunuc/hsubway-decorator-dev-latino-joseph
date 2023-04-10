@@ -1,4 +1,5 @@
 using FluentAssertions;
+using NUnit.Framework;
 using SandwichDecoratorLibrary;
 using System;
 using TechTalk.SpecFlow;
@@ -313,6 +314,37 @@ namespace SandwichDecorator.StepDefinitions
         public void ThenTheDailySaleShouldBe(Decimal p0)
         {
             _dailySale.Should().BeApproximately(p0, 0.1m);
+        }
+
+        private decimal revenue;
+        private decimal expenses;
+        private decimal profit;
+        private Inventory shop = new Inventory();
+
+        [Given(@"the sandwich shop made \$(.*) in revenue")]
+        public void GivenTheSandwichShopMadeInRevenue(decimal amount)
+        {
+            revenue = amount;
+            shop.AddRevenue(amount);
+        }
+
+        [Given(@"spent \$(.*) on ingredients")]
+        public void GivenSpentOnIngredients(decimal amount)
+        {
+            expenses = amount;
+            shop.GetExpenses(amount);
+        }
+
+        [When(@"the owner calculates the profit")]
+        public void WhenTheOwnerCalculatesTheProfit()
+        {
+            profit = shop.GetProfit();
+        }
+
+        [Then(@"the profit should be \$(.*)")]
+        public void ThenTheProfitShouldBe(decimal expectedProfit)
+        {
+            Assert.AreEqual(expectedProfit, profit);
         }
     }
 }

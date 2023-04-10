@@ -151,3 +151,10 @@ Scenario: If on a day I sell three sandwiches
     Then the sandwich will cost $8.75
     And the sandwich is described as "BLT sandwich on rye bread + cheese + bacon + bacon + bacon + bacon"
     Then the daily sale should be $22
+
+@Profit
+Scenario: Calculate daily profit for a sandwich shop
+    Given the sandwich shop made $100 in revenue
+    And spent $50 on ingredients
+    When the owner calculates the profit
+    Then the profit should be $50

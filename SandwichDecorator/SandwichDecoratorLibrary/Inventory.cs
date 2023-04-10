@@ -278,9 +278,9 @@ namespace SandwichDecoratorLibrary
         {
             return dailyRevenue;
         }
-        public decimal GetExpenses()
+        public void GetExpenses(decimal money)
         {
-            return Expenses;
+            Expenses += money;
         }
 
         //Metod to return profit made during the day
