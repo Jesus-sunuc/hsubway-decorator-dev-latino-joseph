@@ -9,9 +9,9 @@ namespace SandwichDecoratorLibrary
 {
     public class Inventory
     {
-        int sandwichStock = 10000;
-        int breadStock = 1;
-        int toppingStock = 10000;
+        int sandwichStock = 50;
+        int breadStock = 4;
+        int toppingStock = 4;
 
         //Keeps track of how much money was made in the day
         decimal dailyRevenue = 0;
@@ -57,7 +57,7 @@ namespace SandwichDecoratorLibrary
 
         public bool IsEmpty()
         {
-            if (sandwichStock == 0 || breadStock == 0 || toppingStock == 0)
+            if (sandwichStock <= 0 || breadStock <= 1 || toppingStock <= 0)
             {
                 return true;
             }
@@ -69,10 +69,7 @@ namespace SandwichDecoratorLibrary
         {
             if (breadStock <= 1)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell BLT sandwich due to missing of bread");
-                Console.ForegroundColor = ConsoleColor.White;
-                /*throw new MissingIngredientException("Cannot sell BLT sandwich due to missing ingredients.");*/
+                throw new MissingIngredientException("Cannot sell BLT sandwich due to missing Bread.");
             }
             else if (sandwichStock <= 1)
             {
@@ -96,19 +93,12 @@ namespace SandwichDecoratorLibrary
         {
             if (breadStock <= 1)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell PBJ sandwich due to missing bread.");
-                Thread.Sleep(3000);
-                Console.ForegroundColor = ConsoleColor.White;
-                /*throw new MissingIngredientException("Cannot sell PBJ sandwich due to missing bread.");*/
+                throw new MissingIngredientException("Cannot sell PBJ sandwich due to missing bread.");
             }
 
             else if (sandwichStock <= 1)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Sorry, we cannot sell more PBJ sandwich");
-                Thread.Sleep(3000);
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Sorry, we cannot sell more PBJ sandwich");
             }
 
             breadStock = breadStock - 2;
@@ -124,19 +114,12 @@ namespace SandwichDecoratorLibrary
         {
             if (breadStock <= 1)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell Chicken sandwich due to missing bread.");
-                Thread.Sleep(3000);
-                Console.ForegroundColor = ConsoleColor.White;
-                /*throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");*/
+                throw new MissingIngredientException("Cannot sell Chicken sandwich due to missing bread.");
             }
 
             else if (sandwichStock <= 1)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Sorry, we cannot sell more Chicken sandwich");
-                Thread.Sleep(3000);
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Sorry, we cannot sell more Chicken sandwich");
             }
 
             breadStock = breadStock - 2;
@@ -152,9 +135,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing bacon.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing bacon.");
             }
             toppingStock--;
             bacon++;
@@ -165,9 +146,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing bacon.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing ham.");
             }
 
             toppingStock--;
@@ -179,9 +158,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing mustard.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing mustard.");
             }
 
             toppingStock--;
@@ -193,9 +170,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing BBQ.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing BBQ");
             }
 
             toppingStock--;
@@ -207,9 +182,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing cheese.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing cheese.");
             }
 
             toppingStock--;
@@ -221,9 +194,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing lettuce.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing lettuce.");
             }
 
             toppingStock--;
@@ -235,9 +206,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing mayo.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing mayo.");
             }
 
             toppingStock--;
@@ -249,9 +218,7 @@ namespace SandwichDecoratorLibrary
         {
             if (toppingStock <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cannot sell bacon due to missing tomato.");
-                Console.ForegroundColor = ConsoleColor.White;
+                throw new MissingIngredientException("Cannot sell sandwich due to missing tomato.");
             }
 
             toppingStock--;
@@ -277,9 +244,15 @@ namespace SandwichDecoratorLibrary
                 $"Mayo topping: {mayo}\n" +
                 $"Tomato topping: {tomato}\n" +
 
+                $"\nBread Stock left: {breadStock}\n" +
+                $"Topping Stock left: {toppingStock}\n" +
+                $"Sandwich Stock left: {sandwichStock}\n" +
+
                 $"\nRevenue obtained: ${dailyRevenue}\n" +
                 $"Money spent on ingredients: ${Expenses}\n" +
                 $"Total profit: ${GetProfit()}";
+
+                
         }
         public void ResetStock()
         {
