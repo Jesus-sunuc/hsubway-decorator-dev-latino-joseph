@@ -125,6 +125,11 @@ Scenario: When there are only 3 bread, only one sandwich can be sold, and the se
     When a BLT sandwich on white bread is ordered
     Then It will throw a MissingIngredientException error
 
+Scenario: When there are only 1 bread, no sandwich can be made.
+    When there is only 1 slice of white bread
+    And a BLT sandwich on white bread is ordered
+    Then It will throw a MissingIngredientException error
+
 @Test_7
 Scenario: If on a day I sell three sandwiches 
     When a chicken sandwich on white bread is ordered
@@ -158,6 +163,12 @@ Scenario: Calculate daily profit for a sandwich shop
     And spent $50 on ingredients
     When the owner calculates the profit
     Then the profit should be $50
+
+Scenario: Calculate daily profit
+    Given the sandwich shop made $0 in revenue
+    And spent $0 on ingredients
+    When the owner calculates the profit
+    Then the profit should be $0
 
 @TestDailySales
 Scenario: If on a day I sell two sandwiches 

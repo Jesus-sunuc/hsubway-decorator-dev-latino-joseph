@@ -66,6 +66,14 @@ namespace SandwichDecorator.StepDefinitions
             _sc.Set<Inventory>(inventory, "inventory");
         }
 
+        [When(@"there is only (.*) slice of white bread")]
+        public void WhenThereIsOnlySliceOfWhiteBread(int p0)
+        {
+            Inventory inventory = _sc.Get<Inventory>("inventory");
+            inventory.breadStock = 1;
+            _sc.Set<Inventory>(inventory, "inventory");
+        }
+
         [When(@"a BLT sandwich on white bread is ordered")]
         public void WhenABLTSandwichOnWhiteBreadIsOrdered()
         {
